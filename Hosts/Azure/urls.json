@@ -1,0 +1,22 @@
+{
+    "prefix": "face",
+    "slug": "",
+    "children": [
+        {
+            "prefix": "v1.0",
+            "slug": "v1",
+            "children": [
+                {
+                    "prefix": "detect",
+                    "slug": "detect",
+                    "method": "POST"
+                },
+                {
+                    "prefix": "verify",
+                    "slug": "verify",
+                    "method": "POST"
+                }
+            ]
+        }
+    ]
+}

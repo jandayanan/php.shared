@@ -1,0 +1,95 @@
+{
+    "prefix": "api/v1",
+    "slug": "",
+    "children": [
+        {
+            "prefix": "rbac",
+            "slug": "rbac",
+            "children": [
+                {
+                    "prefix": "roles",
+                    "slug": "roles",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "define",
+                            "slug": "define",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "delete/{id}",
+                            "slug": "delete",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "fetch/{id}",
+                            "slug": "fetch",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "give/permission/{id}",
+                            "slug": "give/permission/{id}",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "revoke/permission/{id}",
+                            "slug": "revoke/permission/{id}",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "{role_id}",
+                            "slug": "role_id",
+                            "children": [
+                                {
+                                    "prefix": "users/all",
+                                    "slug": "users/all",
+                                    "method": "GET"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "prefix": "permissions",
+                    "slug": "permissions",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "define",
+                            "slug": "define",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "delete/{id}",
+                            "slug": "delete",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "fetch/{id}",
+                            "slug": "fetch",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

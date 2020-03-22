@@ -1,0 +1,89 @@
+{
+    "prefix": "api/v1",
+    "slug": "",
+    "children": [
+        {
+            "prefix": "authentications",
+            "slug": "authentications",
+            "children": [
+                {
+                    "prefix": "users",
+                    "slug": "users",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "define",
+                            "slug": "define",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "delete/{id}",
+                            "slug": "delete",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "fetch/{id}",
+                            "slug": "fetch",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        }
+                    ]
+                },
+                {
+                    "prefix": "tokens",
+                    "slug": "tokens",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "define",
+                            "slug": "define",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "delete/{id}",
+                            "slug": "delete",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "fetch/{id}",
+                            "slug": "fetch",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "revoke/{id}",
+                            "slug": "revoke/{id}",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "extend/{id}",
+                            "slug": "extend/{id}",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "refresh/{id}",
+                            "slug": "refresh/{id}",
+                            "method": "GET"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
