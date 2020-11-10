@@ -38,9 +38,9 @@ class ForceDebug
         return Cipher::hash( $value );
     }
 
-    protected function invalidateAccess( $title = "You do not have access to this endpoint.", $meta=[]){
+    protected function invalidateAccess( $message = "You do not have access to this endpoint.", $meta=[]){
         return (new Response)->httpUnauthorizedResponse([
-            "title" => $title,
+            "message" => $message,
             "meta" => $meta,
         ])->asJson()->getResponse();
     }

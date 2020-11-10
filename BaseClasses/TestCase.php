@@ -48,7 +48,7 @@ abstract class TestCase extends BaseTestCase
     {
         $this->assertTrue( $response instanceof Response, "ERROR: not an instance of Response" );
         $this->assertIsNumeric( $response->getCode(), "Error: code not numeric" );
-        $this->assertNotEmpty( $response->getTitle(), "Error: title empty." );
+        $this->assertNotEmpty( $response->getMessage(), "Error: message empty." );
 
         $failures = [];
 
@@ -144,7 +144,7 @@ abstract class TestCase extends BaseTestCase
 
         if( isset( $data['dump_response'] ) && $data['dump_response'] ) {
             $this->writeLine( "RESPONSE CODE: " . $response->getCode() );
-            $this->writeLine( "RESPONSE TITLE: " . $response->getTitle() );
+            $this->writeLine( "RESPONSE MESSAGE: " . $response->getMessage() );
             $this->writeLine( "RESPONSE META: " . json_encode( $response->getMeta() ) );
             $this->writeLine( "\n" );
         }

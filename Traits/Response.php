@@ -15,7 +15,7 @@ trait Response
     // endregion Flags
 
     protected $code = 500,
-    $title = "Unauthorized action",
+    $message = "Unauthorized action",
     $description = "",
     $meta = [],
     $parameters = [];
@@ -40,17 +40,17 @@ trait Response
     /**
      * @return mixed
      */
-    public function getTitle()
+    public function getMessage()
     {
-        return $this->title;
+        return $this->message;
     }
 
     /**
-     * @param mixed $title
+     * @param mixed $message
      */
-    public function setTitle($title)
+    public function setMessage($message)
     {
-        $this->title = $title;
+        $this->message = $message;
         return $this;
     }
 
@@ -115,7 +115,7 @@ trait Response
         return $this;
     }
 
-    protected function buildTitle($options = [])
+    protected function buildMessage($options = [])
     {
         if (!empty($options)) {
             $this->setResponse($options);
@@ -123,7 +123,7 @@ trait Response
 
         return [
             "code" => $this->code,
-            "title" => $this->title,
+            "message" => $this->message,
             "description" => $this->description,
             "meta" => $this->meta,
             "parameters" => $this->parameters,
@@ -135,7 +135,7 @@ trait Response
         $options = (array) $options;
 
         $this->code = (isset($options['code']) ? $options['code'] : $this->code);
-        $this->title = (isset($options['title']) ? $options['title'] : $this->title);
+        $this->message = (isset($options['message']) ? $options['message'] : $this->message);
         $this->description = (isset($options['description']) ? $options['description'] : $this->description);
         $this->meta = (isset($options['meta']) ? $options['meta'] : $this->meta);
         $this->parameters = (isset($options['parameters']) ? $options['parameters'] : $this->parameters);
@@ -146,10 +146,10 @@ trait Response
     public function getResponse($options = [])
     {
         if ($this->as_json === true) {
-            return response()->json($this->buildTitle());
+            return response()->json($this->buildMessage());
         }
 
-        return $this->buildTitle($options);
+        return $this->buildMessage($options);
     }
 
     public function asJson($flag = true)
@@ -187,7 +187,7 @@ trait Response
         $options = (array) $options;
 
         $options['code'] = 200;
-        $options['title'] = (isset($options['title']) && \strlen($options['title']) > 0) ? $options['title'] : 'Request successfully executed.';
+        $options['message'] = (isset($options['message']) && \strlen($options['message']) > 0) ? $options['message'] : 'Request successfully executed.';
 
         return $this->setResponse($options);
     }
@@ -205,7 +205,7 @@ trait Response
         $options = (array) $options;
 
         $options['code'] = 401;
-        $options['title'] = (isset($options['title']) && \strlen($options['title']) > 0) ? $options['title'] : 'Unauthorized access.';
+        $options['message'] = (isset($options['message']) && \strlen($options['message']) > 0) ? $options['message'] : 'Unauthorized access.';
 
         return $this->setResponse($options);
     }
@@ -220,7 +220,7 @@ trait Response
         $options = (array) $options;
 
         $options['code'] = 403;
-        $options['title'] = (isset($options['title']) && \strlen($options['title']) > 0) ? $options['title'] : 'Forbidden.';
+        $options['message'] = (isset($options['message']) && \strlen($options['message']) > 0) ? $options['message'] : 'Forbidden.';
 
         return $this->setResponse($options);
     }
@@ -235,7 +235,7 @@ trait Response
         $options = (array) $options;
 
         $options['code'] = 404;
-        $options['title'] = (isset($options['title']) && \strlen($options['title']) > 0) ? $options['title'] : 'No data found.';
+        $options['message'] = (isset($options['message']) && \strlen($options['message']) > 0) ? $options['message'] : 'No data found.';
 
         return $this->setResponse($options);
     }
@@ -250,7 +250,7 @@ trait Response
         $options = (array) $options;
 
         $options['code'] = 500;
-        $options['title'] = (isset($options['title']) && \strlen($options['title']) > 0) ? $options['title'] : 'Internal server error.';
+        $options['message'] = (isset($options['message']) && \strlen($options['message']) > 0) ? $options['message'] : 'Internal server error.';
 
         return $this->setResponse($options);
     }
