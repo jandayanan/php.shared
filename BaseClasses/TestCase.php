@@ -145,7 +145,7 @@ abstract class TestCase extends BaseTestCase
         if( isset( $data['dump_response'] ) && $data['dump_response'] ) {
             $this->writeLine( "RESPONSE CODE: " . $response->getCode() );
             $this->writeLine( "RESPONSE MESSAGE: " . $response->getMessage() );
-            $this->writeLine( "RESPONSE META: " . json_encode( $response->getMeta() ) );
+            $this->writeLine( "RESPONSE DATA: " . json_encode( $response->getData() ) );
             $this->writeLine( "\n" );
         }
 

@@ -17,7 +17,7 @@ trait Response
     protected $code = 500,
     $message = "Unauthorized action",
     $description = "",
-    $meta = [],
+    $data = [],
     $parameters = [];
 
     /**
@@ -74,24 +74,24 @@ trait Response
     /**
      * @return mixed
      */
-    public function getMeta()
+    public function getData()
     {
-        return $this->meta;
+        return $this->data;
     }
 
     /**
-     * @param mixed $meta
+     * @param mixed $data
      */
-    public function setMeta($meta)
+    public function setData($data)
     {
-        $this->meta = $meta;
+        $this->data = $data;
         return $this;
     }
 
-    public function addMeta($data = [])
+    public function addData($data = [])
     {
         if (!empty($data) && is_array($data)) {
-            $this->meta = array_merge($this->meta, $data);
+            $this->data = array_merge($this->data, $data);
         }
 
         return $this;
@@ -125,7 +125,7 @@ trait Response
             "code" => $this->code,
             "message" => $this->message,
             "description" => $this->description,
-            "meta" => $this->meta,
+            "data" => $this->data,
             "parameters" => $this->parameters,
         ];
     }
@@ -137,7 +137,7 @@ trait Response
         $this->code = (isset($options['code']) ? $options['code'] : $this->code);
         $this->message = (isset($options['message']) ? $options['message'] : $this->message);
         $this->description = (isset($options['description']) ? $options['description'] : $this->description);
-        $this->meta = (isset($options['meta']) ? $options['meta'] : $this->meta);
+        $this->data = (isset($options['data']) ? $options['data'] : $this->data);
         $this->parameters = (isset($options['parameters']) ? $options['parameters'] : $this->parameters);
 
         return $this;

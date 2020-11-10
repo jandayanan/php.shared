@@ -39,7 +39,7 @@ class NotificationService implements ShouldBroadcast
         return [
             "code" => 200,
             "message" => "Successfully sent notification.",
-            "meta" => $this->data,
+            "data" => $this->data,
         ];
     }
 }

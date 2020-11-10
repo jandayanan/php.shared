@@ -468,8 +468,8 @@ abstract class Repository
     // endregion Query Helpers
 
     // region Response Management
-    protected function buildMeta( $meta ){
-        return $meta;
+    protected function buildData( $data ){
+        return $data;
     }
     // endregion Response Management
 

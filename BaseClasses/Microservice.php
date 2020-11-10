@@ -59,7 +59,7 @@ abstract class Microservice extends Host
             $code = 500;
             $message = "Successfully called microservice";
             $description = "";
-            $meta = [];
+            $data = [];
             $parameters = [];
 
             if (isset($result->code)) {
@@ -78,13 +78,13 @@ abstract class Microservice extends Host
                 $description = trim($result->description) == "" ?: $result->description;
             }
 
-            if (!is_array( $result ) && isset($result->meta)) {
-                $meta = $result->meta;
+            if (!is_array( $result ) && isset($result->data)) {
+                $data = $result->data;
             }
 
             if( is_array( $result ) ){
                 $code = 200;
-                $meta = $result;
+                $data = $result;
             }
 
             if( !is_array( $result ) ){
@@ -94,7 +94,7 @@ abstract class Microservice extends Host
 
                 if( $result ){
                     $code = 200;
-                    $meta = $result;
+                    $data = $result;
                 }
             }
 
@@ -102,7 +102,7 @@ abstract class Microservice extends Host
                 'code' => $code,
                 'message' => $message,
                 'description' => $description,
-                'meta' => array_merge((array)$meta, [
+                'data' => array_merge((array)$data, [
 
                 ]),
                 'parameters' => array_merge((array)$parameters, [
