@@ -65,10 +65,10 @@ class VerifyAppAccess
         return Cipher::hash( $value );
     }
 
-    protected function invalidateAccess( $title = "You do not have access to this endpoint.", $meta=[]){
+    protected function invalidateAccess( $message = "You do not have access to this endpoint.", $data=[]){
         return (new Response)->httpUnauthorizedResponse([
-            "title" => $title,
-            "meta" => $meta,
+            "message" => $message,
+            "data" => $data,
         ])->asJson()->getResponse();
     }
 }

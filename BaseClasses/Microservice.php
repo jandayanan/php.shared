@@ -57,17 +57,17 @@ abstract class Microservice extends Host
             }
 
             $code = 500;
-            $title = "Successfully called microservice";
+            $message = "Successfully called microservice";
             $description = "";
-            $meta = [];
+            $data = [];
             $parameters = [];
 
             if (isset($result->code)) {
                 $code = $result->code;
             }
 
-            if (isset($result->title)) {
-                $title = trim($result->title) == "" ?: $result->title;
+            if (isset($result->message)) {
+                $message = trim($result->message) == "" ?: $result->message;
             }
 
             if (isset($result->parameters)) {
@@ -78,31 +78,31 @@ abstract class Microservice extends Host
                 $description = trim($result->description) == "" ?: $result->description;
             }
 
-            if (!is_array( $result ) && isset($result->meta)) {
-                $meta = $result->meta;
+            if (!is_array( $result ) && isset($result->data)) {
+                $data = $result->data;
             }
 
             if( is_array( $result ) ){
                 $code = 200;
-                $meta = $result;
+                $data = $result;
             }
 
             if( !is_array( $result ) ){
                 if( isset($result->error) && $result->error ){
-                    $title = $result->error->message;
+                    $message = $result->error->message;
                 }
 
                 if( $result ){
                     $code = 200;
-                    $meta = $result;
+                    $data = $result;
                 }
             }
 
             $this->setResponse([
                 'code' => $code,
-                'title' => $title,
+                'message' => $message,
                 'description' => $description,
-                'meta' => array_merge((array)$meta, [
+                'data' => array_merge((array)$data, [
 
                 ]),
                 'parameters' => array_merge((array)$parameters, [

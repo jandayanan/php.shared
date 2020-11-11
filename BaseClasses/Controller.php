@@ -21,8 +21,8 @@ abstract class Controller extends LaravelController
 
 
     public function respond( $result, $data ){
-        if( isset($data['as_meta']) && $data['as_meta'] === true ){
-            return $result->getMeta();
+        if( isset($data['as_data']) && $data['as_data'] === true ){
+            return $result->getData();
         }
 
         if( isset($data['as_object']) && $data['as_object'] === true ){

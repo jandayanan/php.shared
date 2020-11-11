@@ -99,7 +99,7 @@ abstract class Host
         } catch (\GuzzleHttp\Exception\RequestException $exception) {
             return (object) [
                 'code' => 503,
-                'title' => $exception->getMessage(),
+                'message' => $exception->getMessage(),
             ];
         } catch( \Exception $e ){
             dd( $e );
@@ -133,7 +133,7 @@ abstract class Host
 
             return $this->setResponse([
                 "code" => $_response->getStatusCode(),
-                "title" => $_response->getReasonPhrase(),
+                "message" => $_response->getReasonPhrase(),
             ]);
         }
 
