@@ -15,6 +15,12 @@ class Response
 
     private static $_instance;
 
+    public function __construct( $params=null ){
+        if( $params ){
+            $this->setResponse( $params );
+        }
+    }
+
     public static function respond( $data=[] ){
         if ( ! isset(self::$_instance)) {
             self::$_instance = new self();

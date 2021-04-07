@@ -48,6 +48,13 @@ if( !function_exists("class_of_model") ){
     }
 }
 
+if( !function_exists("class_of") ){
+    function class_of( $slug, $invoke=false ){
+        $model = shared_config( "classmap." . $slug );
+        return $invoke ? new $model() : $model;
+    }
+}
+
 if( !function_exists('get_class_from_file') ){
     function get_class_from_file($path_to_file)
     {

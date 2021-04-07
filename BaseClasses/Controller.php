@@ -47,4 +47,12 @@ abstract class Controller extends LaravelController
 
         return response()->json($this->getResponse(), $code);
     }
+
+    public function absorbJson( $object ){
+        return $this->absorb( $object )->json();
+    }
+
+    public function absorbParameters( $params ){
+        return $this->setParameters ( $params );
+    }
 }

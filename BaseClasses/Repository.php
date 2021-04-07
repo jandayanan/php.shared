@@ -111,12 +111,38 @@ abstract class Repository
         //region Logical Conditions
         if (isset($data['where'])) {
             foreach ((array) $data['where'] as $key => $conditions) {
-                if (is_array($conditions['value']) && $conditions['operator'] == '=') {
-                    $model = $model->whereIn($conditions['target'], $conditions['value']);
-                } else if (is_array($conditions['value']) && $conditions['operator'] == '!=') {
-                    $model = $model->whereNotIn($conditions['target'], $conditions['value']);
-                } else {
-                    $model = $model->where($conditions['target'], $conditions['operator'], $conditions['value']);
+                if( is_multidim ( $conditions ) ){
+                    $model = $model->orWhere( function( $root_model ) use ( $conditions ) {
+                        foreach ( (array)$conditions as $key => $sub_conditions ) {
+                            $root_model->where ( function ( $submodel ) use ( $sub_conditions ) {
+                                if ( isset( $sub_conditions[ 'target' ] ) || isset( $sub_conditions[ 'value' ] ) ) {
+                                    if ( isset( $sub_conditions[ 'value' ] )
+                                        && is_array ( $sub_conditions[ 'value' ] )
+                                        && $sub_conditions[ 'operator' ] == '=' ) {
+                                        $submodel->whereIn ( $sub_conditions[ 'target' ], $sub_conditions[ 'value' ] );
+                                    } else if ( isset( $sub_conditions[ 'value' ] )
+                                        && is_array ( $sub_conditions[ 'value' ] )
+                                        && $sub_conditions[ 'operator' ] == '!=' ) {
+                                        $submodel->whereNotIn ( $sub_conditions[ 'target' ], $sub_conditions[ 'value' ] );
+                                    } else {
+                                        $submodel->where ( $sub_conditions[ 'target' ], $sub_conditions[ 'operator' ], $sub_conditions[ 'value' ] );
+                                    }
+                                }
+                            } );
+                        }
+                    });
+                } else if( isset( $conditions['target'] ) || isset( $conditions['value'] ) ){
+                    if (isset($conditions['value'])
+                        && is_array($conditions['value'])
+                        && $conditions['operator'] == '=') {
+                        $model = $model->whereIn($conditions['target'], $conditions['value']);
+                    } else if (isset($conditions['value'])
+                        && is_array($conditions['value'])
+                        && $conditions['operator'] == '!=') {
+                        $model = $model->whereNotIn($conditions['target'], $conditions['value']);
+                    } else {
+                        $model = $model->where($conditions['target'], $conditions['operator'], $conditions['value']);
+                    }
                 }
             }
         }
@@ -142,9 +168,21 @@ abstract class Repository
 
         }
 
+        if (isset($data['where_raw'])) {
+            foreach ((array) $data['where_raw'] as $statement => $datum ) {
+                $model = $model->whereRaw($statement, $datum);
+            }
+        }
+
         if (isset($data['where_date'])) {
             foreach ((array) $data['where_date'] as $key => $conditions) {
                 $model = $model->whereDate($conditions['target'], $conditions['operator'], $conditions['value']);
+            }
+        }
+
+        if(isset($data['where_in'])) {
+            foreach ((array) $data['where_in'] as $key => $conditions) {
+                $model = $model->whereIn($conditions['target'], $conditions['value']);
             }
         }
 
@@ -228,9 +266,36 @@ abstract class Repository
             $model = $model->orderBy($data["sort"], $data['order'] ?? 'asc');
         }
 
+        if (isset($data['sort_raw']) ) {
+            $model = $model->orderByRaw ( $data['sort_raw'] );
+        }
+
+        if (isset($data['distinct']) && $data['distinct'] === true ) {
+            $model->distinct ();
+        }
+
         if (isset($data['count']) && $data['count'] === true) {
             return $model->get()->count();
         }
+
+        if (isset($data['group_by'])) {
+            $result = $model->groupBy($data['group_by']);
+        }
+
+        /**
+         * Dumps query for debugging
+         */
+        if( isset( $data['dump_sql'] ) && $data['dump_sql'] === true ){
+            var_dump( dump_query( $model ) );
+        }
+
+        if( isset( $data['ddump_sql'] ) && $data['ddump_sql'] === true ){
+            dd( dump_query( $model ) );
+        }
+
+        if( isset($data['dump_data']) && $data['dump_data'] === true ) var_dump( $data );
+
+        if( isset($data['dump_result']) && $data['dump_result'] === true ) dd( $result );
 
         if (isset($data['single']) && $data['single'] === true) {
             $result = $model->get()->first();
@@ -245,7 +310,9 @@ abstract class Repository
                 }
             }
         } else {
-            if (isset($data['as_builder']) && $data['as_builder'] === true) {
+            if (isset($data['as_array']) && $data['as_array'] === true) {
+                $result = $model->get()->toArray ();
+            } else if (isset($data['as_builder']) && $data['as_builder'] === true) {
                 $result = $model;
             } else {
                 if (isset($data['paginate']) && $data['paginate'] && is_numeric($data['paginate'])) {
@@ -259,12 +326,6 @@ abstract class Repository
 
         //endregion Data Presentation
 
-        /**
-         * Dumps query for debugging
-         */
-        if( isset( $data['dump_sql'] ) && $data['dump_sql'] === true ){
-            var_dump( dump_query( $model ) );
-        }
 
         return $result;
     }
