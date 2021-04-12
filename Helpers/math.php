@@ -48,9 +48,17 @@ if (!function_exists("nf")) {
     }
 }
 
-if( !function_exists( "percentage") ){
-    function percentage( $count, $base ){
-        return ($count/$base) * 100;
+if ( !function_exists( 'is_numeric_pk' ) ) {
+    function is_numeric_pk( $number )
+    {
+        return ( is_numeric( $number ) && $number >= 0 );
+    }
+}
+
+if ( !function_exists( "percentage" ) ) {
+    function percentage( $count, $base )
+    {
+        return ( $count / $base ) * 100;
     }
 }
 
@@ -66,10 +74,30 @@ if (!function_exists("quick_hash")) {
      */
     function quick_hash($value, $from = 0, $to = 25, $func='sha256')
     {
-        if( $from === 0 && $to === 0 ){
-            return $func($value);
+        if( !in_array( $func, hash_algos () ) ){
+            $func = "basic_hash";
         }
-        return substr($func($value), $from, $to);
+
+        $force = [ "sha256" ];
+        if( in_array( $func, $force ) && !function_exists($func) ){
+            $hash = hash( $func, $value );
+        } else {
+            $hash = $func( $value );
+        }
+
+        return ( $to > 0 ? substr($hash, $from, $to) : $hash );
+    }
+}
+
+if( !function_exists("basic_hash") ){
+    function basic_hash( $value ){
+        return md5( $value );
+    }
+}
+
+if( !function_exists("hashf") ){
+    function hashf( $value, $algo="sha256"){
+        return hash( $algo, $value );
     }
 }
 

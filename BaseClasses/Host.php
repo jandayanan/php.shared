@@ -23,6 +23,10 @@ abstract class Host
 
     protected $headers = [];
 
+    // region Guzzle Flags
+    protected $verify=false;
+    // endregion Guzzle Flags
+
     public function __construct($options = [], $url = "")
     {
         $this->initializeClient();
@@ -63,7 +67,7 @@ abstract class Host
             $this->initializeClient($options);
         }
 
-        return $this->fetchRawResponse('GET', $path, ['query' => $data], true);
+        return $this->fetchRawResponse('GET', $path, ['query' => $data], true, $request);
     }
 
     /**
@@ -78,9 +82,13 @@ abstract class Host
      * @return \Illuminate\Http\JsonResponse|mixed|object|\Psr\Http\Message\ResponseInterface|null
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function fetchRawResponse($method, $path, $data = [], $generate = false)
+    public function fetchRawResponse($method, $path, $data = [], $generate = false, $request=[])
     {
         $response = null;
+        if( isset($data['__debug']['dump_full_path']) && $data['__debug']['dump_full_path'] === true ){
+            var_dump( $data );
+        }
+
 
         if( !empty( $this->headers ) ){
             if( !isset( $data['headers']) ){
@@ -103,6 +111,16 @@ abstract class Host
             ];
         } catch( \Exception $e ){
             dd( $e );
+        }
+
+        if( isset($request['__debug']['dump_url']) && $request['__debug']['dump_url'] === true ){
+            var_dump( $path );
+        }
+        if( isset($request['__debug']['dump_result']) && $request['__debug']['dump_result'] === true ){
+            var_dump( $response->getStatusCode (), $response );
+        }
+        if( isset($request['__debug']['die']) && $request['__debug']['die'] === true ){
+            exit();
         }
 
         if ($generate) {
@@ -154,8 +172,17 @@ abstract class Host
         $this->client = new Client(
             array_merge([
                 "base_uri" => $url,
+                "verify" => $this->verify,
             ], $options)
         );
+    }
+
+    protected function setBaseUrl( $url="" ){
+        if( trim( $url ) !== "" ){
+            $this->base_url = $url;
+        }
+
+        return $this;
     }
 
     /**
@@ -219,6 +246,6 @@ abstract class Host
             ];
         }
 
-        return $this->fetchRawResponse('POST', $path, $post_data, true);
+        return $this->fetchRawResponse('POST', $path, $post_data, true, $request);
     }
 }

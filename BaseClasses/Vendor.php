@@ -9,9 +9,9 @@ use Shared\Utilities\Cipher;
 use RecursiveArrayIterator;
 use RecursiveIteratorIterator;
 
-abstract class Microservice extends Host
+abstract class Vendor extends Host
 {
-    protected $app_slug, $method, $urls = [];
+    protected $app_slug, $method, $urls = [], $latest_url="";
 
     public function __construct($options = [], $url = "")
     {
@@ -44,16 +44,27 @@ abstract class Microservice extends Host
             exit();
         }
 
-        try {
+        $clean_data = clean_array_debug ( $data );
 
+        if( isset($data['__data']['json']) && $data['__data']['json'] === true ){
+            // $clean_data = json_encode ( $clean_data );
+        }
+
+        try {
+            $this->latest_url = $url;
             $result = $this->$method( $url, $data, $this->headers );
 
+            if( isset($data['__debug']['dump_data']) && $data['__debug']['dump_data'] === true ){
+                var_dump( $clean_data );
+            }
             if( isset($data['__debug']['dump_result']) && $data['__debug']['dump_result'] === true ){
                 var_dump( $result );
             }
-
-            if ( !is_array( $result ) && object_has_trait(Response::class, $result)) {
-                return $this->absorb($result);
+            if( isset($data['__debug']['dump_url']) && $data['__debug']['dump_url'] === true ){
+                var_dump( $url );
+            }
+            if( isset($data['__debug']['die']) && $data['__debug']['die'] === true ){
+                exit();
             }
 
             if( isset( $data['__callback'] ) && is_callable( $data['__callback'])  ){
@@ -64,46 +75,10 @@ abstract class Microservice extends Host
             }
 
             $code = 500;
-            $message = "Successfully called microservice";
+            $message = "Successfully called vendor endpoint";
             $description = "";
             $data = [];
             $parameters = [];
-
-            if( !is_array( $result ) ){
-                if( isset($result->error) && $result->error ){
-                    $message = $result->error->message;
-                }
-
-                if( $result ){
-                    $code = 200;
-                    $data = $result;
-                }
-            }
-
-            if (isset($result->code)) {
-                $code = $result->code;
-            }
-
-            if (isset($result->message)) {
-                $message = trim($result->message) == "" ?: $result->message;
-            }
-
-            if (isset($result->parameters)) {
-                $parameters = $result->parameters;
-            }
-
-            if (isset($result->description)) {
-                $description = trim($result->description) == "" ?: $result->description;
-            }
-
-            if (!is_array( $result ) && isset($result->data)) {
-                $data = $result->data;
-            }
-
-            if( is_array( $result ) ){
-                $code = 200;
-                $data = $result;
-            }
 
             if( !is_array( $result ) ){
                 if( isset($result->error) && $result->error ){
@@ -141,10 +116,6 @@ abstract class Microservice extends Host
 
     protected function buildHeaders($headers = [])
     {
-        $this->headers["Security-Source-Name"] = env("APP_SLUG");
-        $this->headers["Security-Source-Hash"] = Cipher::hash(config(env("APP_SLUG")));
-        $this->headers["Security-Target-Hash"] = Cipher::hash(config($this->app_slug));
-
         $this->headers = array_merge($this->headers, $headers);
     }
 
@@ -193,12 +164,14 @@ abstract class Microservice extends Host
 
         if( isset( $query ) && !empty( $query ) ){
             $result .= strpos( $result, "?" ) ? "" : "?";
+            $query_string = "";
             foreach( (array) $query as $k => $v ){
-                $result .= "&" . $k . "=" . $v;
+                $query_string .= "&" . $k . "=" . $v;
             }
+            $result .= substr($query_string,1);
         }
 
-        return $result;
+        return str_replace("//", "/", $result);
     }
 
     // Deprecated

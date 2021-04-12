@@ -8,28 +8,126 @@
 
 namespace Shared\Traits;
 
+/**
+ * Trait Response
+ * @package Common\Traits
+ *
+ * @method $this asJson( boolean $flag=true ) Sets response flag as json, can be used along with other flags
+ * @method $this asCode( boolean $flag=true ) Sets response flag as code
+ * @method $this asMessage( boolean $flag=true ) Sets response flag as message
+ * @method $this asDescription( boolean $flag=true ) Sets response flag as description
+ * @method $this asData( boolean $flag=true ) Sets response flag as data
+ * @method $this asValue( boolean $flag=true ) Sets response flag as first data key's value
+ * @method $this asJsonv( boolean $flag=true ) Sets response flag as first data key's value decoded as JSON
+ * @method $this asParameters( boolean $flag=true ) Sets response flag as parameters
+ */
 trait Response
 {
     // region Flags
     protected $as_json = false;
+    protected $as_code = false;
+    protected $as_message = false;
+    protected $as_description = false;
+    protected $as_data = false;
+    protected $as_value = false;
+    protected $as_jsonv = false;
+    protected $as_parameters = false;
+
+    protected $include_response_time = false;
     // endregion Flags
 
     protected $code = 500,
-    $message = "Unauthorized action",
-    $description = "",
-    $data = [],
-    $parameters = [];
+        $message = "Unauthorized action",
+        $description = "",
+        $data = [],
+        $parameters = [],
+        $info = [];
 
+    // region Get Properties
     /**
      * @return mixed
      */
     public function getCode()
     {
+        if( $this->as_json ){
+            return response()->json([
+                "code" => $this->code
+            ]);
+        }
+
         return $this->code;
     }
 
     /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        if( $this->as_json ){
+            return response()->json([
+                "description" => $this->description
+            ]);
+        }
+
+        return $this->description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getData()
+    {
+        if( $this->as_json ){
+            return response()->json([
+                "data" => $this->data
+            ]);
+        }
+
+        return $this->data;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getParameters()
+    {
+        if( $this->as_json ){
+            return response()->json([
+                "parameters" => $this->parameters
+            ]);
+        }
+
+        return $this->parameters;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMessage()
+    {
+        if( $this->as_json ){
+            return response()->json([
+                "message" => $this->message
+            ]);
+        }
+
+        return $this->message;
+    }
+    /**
+     * @return mixed
+     */
+    public function getValue()
+    {
+        $data = $this->getData();
+        return reset( $data );
+    }
+    // endregion Get Properties
+
+    // region Set Properties
+
+    /**
      * @param mixed $code
+     * @return $this
      */
     public function setCode($code)
     {
@@ -38,32 +136,8 @@ trait Response
     }
 
     /**
-     * @return mixed
-     */
-    public function getMessage()
-    {
-        return $this->message;
-    }
-
-    /**
-     * @param mixed $message
-     */
-    public function setMessage($message)
-    {
-        $this->message = $message;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
      * @param mixed $description
+     * @return $this
      */
     public function setDescription($description)
     {
@@ -72,19 +146,36 @@ trait Response
     }
 
     /**
-     * @return mixed
-     */
-    public function getData()
-    {
-        return $this->data;
-    }
-
-    /**
      * @param mixed $data
+     * @return $this
      */
     public function setData($data)
     {
         $this->data = $data;
+        return $this;
+    }
+
+    /**
+     * @param mixed $parameters
+     * @return $this
+     */
+    public function setParameters($parameters)
+    {
+        $this->parameters = $parameters;
+        return $this;
+    }
+
+    public function clearParameters(){
+        return $this->setParameters ([]);
+    }
+
+    /**
+     * @param mixed $message
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
         return $this;
     }
 
@@ -97,28 +188,18 @@ trait Response
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getParameters()
-    {
-        return $this->parameters;
-
-    }
-
-    /**
-     * @param mixed $parameters
-     */
-    public function setParameters($parameters)
-    {
-        $this->parameters = $parameters;
-        return $this;
-    }
+    // endregion Set Properties
 
     protected function buildMessage($options = [])
     {
         if (!empty($options)) {
             $this->setResponse($options);
+        }
+
+        if( $this->include_response_time === true ){
+            $diff = microtime(true) - LARAVEL_START;
+
+            $this->info['response_time'] = number_format ( $diff, 5) . "s";
         }
 
         return [
@@ -127,6 +208,7 @@ trait Response
             "description" => $this->description,
             "data" => $this->data,
             "parameters" => $this->parameters,
+            "info" => $this->info,
         ];
     }
 
@@ -139,6 +221,7 @@ trait Response
         $this->description = (isset($options['description']) ? $options['description'] : $this->description);
         $this->data = (isset($options['data']) ? $options['data'] : $this->data);
         $this->parameters = (isset($options['parameters']) ? $options['parameters'] : $this->parameters);
+        $this->info = (isset($options['info']) ? $options['info'] : $this->info);
 
         return $this;
     }
@@ -152,11 +235,70 @@ trait Response
         return $this->buildMessage($options);
     }
 
-    public function asJson($flag = true)
-    {
-        $this->as_json = $flag;
+    public function getState(){
+        if( $this->as_code ){
+            return $this->getCode();
+        }
+        if( $this->as_message ){
+            return $this->getMessage();
+        }
+        if( $this->as_description ){
+            return $this->getDescription();
+        }
+        if( $this->as_data ){
+            return $this->getData();
+        }
+        if( $this->as_value ){
+            $data = $this->getData();
+            return reset( $data );
+        }
+        if( $this->as_jsonv ){
+            $data = $this->getData();
+            return (array) json_decode ( reset( $data ) );
+        }
+        if( $this->as_parameters ){
+            return $this->getParameters();
+        }
 
         return $this;
+    }
+
+    public function setFlag( $type, $flag ){
+        $this->resetFlags();
+
+        $var = "as_" . $type;
+        $this->$var = (boolean) $flag;
+
+        return $this;
+    }
+
+    public function resetFlags(){
+        foreach( $this as $key => $value ){
+            if( strpos( $key, "as_" ) !== false && $key !== "as_json"){
+                $this->$key = false;
+            }
+        }
+
+        return $this;
+    }
+
+    public function __call($name, $arguments) {
+        switch( $name ){
+            case "asJson":
+            case "asCode":
+            case "asMessage":
+            case "asDescription":
+            case "asData":
+            case "asParameters":
+            case "asValue":
+            case "asJsonv":
+                $type = strtolower( str_replace( "as", "", $name ) );
+                $flag = ( empty( $arguments ) ? true : ( $arguments[0] === false ? false : true ) ) ;
+                $this->setFlag( $type, $flag);
+
+                return $this;
+                break;
+        }
     }
 
     //region Behavioral
@@ -182,6 +324,10 @@ trait Response
     //endregion Behavioral
 
     //region Success Response
+    /**
+     * @param array $options
+     * @return $this
+     */
     public function httpSuccessResponse($options = [])
     {
         $options = (array) $options;
@@ -198,7 +344,8 @@ trait Response
     /**
      * Http 401 Error Response.
      *
-     * @return void
+     * @param array $options
+     * @return mixed
      */
     public function httpUnauthorizedResponse($options = [])
     {
@@ -213,7 +360,8 @@ trait Response
     /**
      * Http 403 Error Response.
      *
-     * @return void
+     * @param array $options
+     * @return mixed
      */
     public function httpForbiddenResponse($options = [])
     {
@@ -228,7 +376,8 @@ trait Response
     /**
      * Http 404 Error Response.
      *
-     * @return void
+     * @param array $options
+     * @return $this
      */
     public function httpNotFoundResponse($options = [])
     {
@@ -243,7 +392,8 @@ trait Response
     /**
      * Http 500 Error Response.
      *
-     * @return void
+     * @param array $options
+     * @return $this
      */
     public function httpInternalServerResponse($options = [])
     {

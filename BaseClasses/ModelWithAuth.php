@@ -2,8 +2,7 @@
 
 namespace Shared\BaseClasses;
 
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model as LaravelModel;
+use Illuminate\Foundation\Auth\User as LaravelModel;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Validator;
 
@@ -12,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
  * @package App\Data\Models
  *
  */
-abstract class Model extends LaravelModel
+abstract class ModelWithAuth extends LaravelModel
 {
     use SoftDeletes; //use softdelete traits
 
@@ -25,8 +24,6 @@ abstract class Model extends LaravelModel
     protected $searchable = [];
     protected $defaults=[];
     protected $safe_attributes=[];
-    protected $data_filter = true;
-    protected $data_status_column = "status";
 
     /**
      * Define model constructor
@@ -256,14 +253,6 @@ abstract class Model extends LaravelModel
         return array_key_exists($attr, $this->attributes);
     }
 
-    public function dataFilter( $column=""){
-        if( $column != "" ){
-            $this->data_status_column = $column;
-        }
-
-        return $this->data_filter;
-    }
-
     // region Get
     public function getSafeAttributes(){
         $result = $this;
@@ -272,22 +261,7 @@ abstract class Model extends LaravelModel
             $result = [];
             foreach( (array) $this->safe_attributes as $key => $value ){
                 $target = $value != "" ? $value: $key;
-
-                if( strpos ( $key, "::") !== false ){
-                    $relationship_key = str_replace ( "::", "", $key );
-                    if( array_key_exists( $relationship_key, $this->getRelations() )
-                        && $this->getRelations ()[ $relationship_key ] !== null ){
-                        if( $this->getRelations ()[ $relationship_key ] instanceof Collection ){
-                            foreach( $this->getRelations ()[ $relationship_key ] as $model ){
-                                $result[ $target ][] = $model->getSafeAttributes();
-                            }
-                        } else {
-                            $result[ $target ] = $this->getRelations ()[ $relationship_key ]->getSafeAttributes();
-                        }
-                    }
-                } else {
-                    $result[ $target ] = $this->getAttribute ( $key );
-                }
+                $result[ $target ] = $this->getAttribute ( $key );
             }
         }
 
