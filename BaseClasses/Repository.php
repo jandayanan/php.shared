@@ -341,7 +341,7 @@ abstract class Repository
      * @param Builder|Model $model
      * @return Builder
      */
-    protected function genericSearch($data, $model)
+    protected function genericSearch($data, $model=null )
     {
         //region Selection
         //endregion Selection
@@ -452,7 +452,7 @@ abstract class Repository
      * @param model $model
      * @return mixed
      */
-    protected function getIndexIncrement($data = [], $model)
+    protected function getIndexIncrement($data = [], $model=null )
     {
         //region validation
         $order = null;
@@ -485,7 +485,7 @@ abstract class Repository
      * @param model $model
      * @return boolean
      */
-    protected function recomputeIndicesIncrement($data = [], $model)
+    protected function recomputeIndicesIncrement($data = [], $model=null )
     {
         //region validation
         if (!isset($data['id'])) {
