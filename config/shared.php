@@ -21,6 +21,7 @@ return [
             ],
             "entity" => [
                 "entity" => "App\Data\Models\Entities\Entity",
+                "meta" => "App\Data\Models\Entities\EntityMeta",
                 "program" => [
                     "program" => "App\Data\Models\Entity\Program\Program",
 
