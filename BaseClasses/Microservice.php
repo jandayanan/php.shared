@@ -105,17 +105,6 @@ abstract class Microservice extends Host
                 $data = $result;
             }
 
-            if( !is_array( $result ) ){
-                if( isset($result->error) && $result->error ){
-                    $message = $result->error->message;
-                }
-
-                if( $result ){
-                    $code = 200;
-                    $data = $result;
-                }
-            }
-
             $this->setResponse([
                 'code' => $code,
                 'message' => $message,
