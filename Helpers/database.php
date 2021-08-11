@@ -26,6 +26,10 @@ if (!function_exists("refresh_model")) {
      */
     function refresh_model($model, $data = [])
     {
+        if( $model instanceof Builder ){
+            $model = $model->getModel();
+        }
+
         $class = $model->getClass();
         $new_model = new $class($data);
 

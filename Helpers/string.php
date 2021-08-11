@@ -680,6 +680,31 @@ const NATIONALITIES = [
     "Zambia" => "Zambian",
     "Zimbabwe" => "Zimbabwean",
 ];
+
+const WEEKDAYS = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+];
+
+const MONTHS = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+];
 // endregion CONSTANTS
 
 if( !function_exists( "acronym") ){
@@ -728,6 +753,24 @@ if( !function_exists( "get_currencies") ){
             return collect( CURRENCIES );
         }
         return collect( CURRENCIES )->toArray();
+    }
+}
+
+if( !function_exists( "get_months") ){
+    function get_months( $as_collection=false ){
+        if( $as_collection ){
+            return collect( MONTHS );
+        }
+        return collect( MONTHS )->toArray();
+    }
+}
+
+if( !function_exists( "get_week_days") ){
+    function get_week_days( $as_collection=false ){
+        if( $as_collection ){
+            return collect( WEEKDAYS );
+        }
+        return collect( WEEKDAYS )->toArray();
     }
 }
 

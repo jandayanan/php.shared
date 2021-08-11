@@ -151,9 +151,13 @@ abstract class Repository
             $model = $model->where(function ($query) use ($data) {
                 foreach ((array) $data['where_between'] as $key => $conditions) {
                     if (isset($conditions['prepend']) && $conditions['prepend'] == 'or') {
-                        $query->orWhereBetween($conditions['target'], [$conditions['from'], $conditions['to']]);
+                        $query->orWhere( function( $qry ) use ($data, $conditions, $key) {
+                            $qry->whereBetween($conditions['target'], [$conditions['from'], $conditions['to']]);
+                        });
                     } else {
-                        $query->whereBetween($conditions['target'], [$conditions['from'], $conditions['to']]);
+                        $query->where( function( $qry ) use ($data, $conditions, $key) {
+                            $qry->whereBetween($conditions['target'], [$conditions['from'], $conditions['to']]);
+                        });
                     }
                 }
 
@@ -525,6 +529,14 @@ abstract class Repository
             $this->states['soft_limited'] = false;
             $this->config['soft_limit'] = 0;
         }
+    }
+
+    protected function makeModel( $data, $model ){
+        if(isset( $data['fresh']) && $data['fresh']==true){
+            $model = refresh_model ( $this->log);
+        }
+
+        return $model;
     }
     // endregion Query Helpers
 

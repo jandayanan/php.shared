@@ -212,6 +212,17 @@ trait Response
         ];
     }
 
+    protected function reset(){
+        $this->code = 500;
+        $this->message = "Unauthorized action";
+        $this->description = "";
+        $this->data = [];
+        $this->parameters = [];
+        $info = [];
+
+        return $this;
+    }
+
     public function setResponse($options)
     {
         $options = (array) $options;
