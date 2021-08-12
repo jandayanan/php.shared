@@ -733,8 +733,8 @@
                                             "method": "GET"
                                         },
                                         {
-                                            "prefix": "slug/{slug}",
-                                            "slug": "slug",
+                                            "prefix": "check/{slug}",
+                                            "slug": "check",
                                             "method": "GET"
                                         },
                                         {
