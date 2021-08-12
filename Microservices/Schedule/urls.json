@@ -20,7 +20,7 @@
                     "prefix": "delete/{id}",
                     "slug": "delete",
                     "method": "GET"
-                },c
+                },
                 {
                     "prefix": "fetch/{id}",
                     "slug": "fetch",
