@@ -15,7 +15,7 @@ class TaskMicroservice extends Microservice
     public function __construct()
     {
         $this->app_slug = "services.task.app.code";
-        $this->base_url = env("SCHEDULE_API_ENDPOINT", 'http://e20v.svc.task');
+        $this->base_url = env("TASK_API_ENDPOINT", 'http://e20v.svc.task');
         $this->options = [];
         $this->auth_flag = true;
 

@@ -15,7 +15,7 @@ class HRMicroservice extends Microservice
     public function __construct()
     {
         $this->app_slug = "services.hr.api.app.code";
-        $this->base_url = env("SERVICES_API_ENDPOINT", 'http://e20v.svc.hr');
+        $this->base_url = env("HR_API_ENDPOINT", 'http://e20v.svc.hr');
         $this->options = [];
         $this->auth_flag = true;
 
