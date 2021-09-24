@@ -434,6 +434,11 @@
                                     "prefix": "define",
                                     "slug": "define",
                                     "method": "POST"
+                                },
+                                {
+                                    "prefix": "latest/{id}",
+                                    "slug": "latest",
+                                    "method": "GET"
                                 }
                             ]
                         },
