@@ -7,13 +7,13 @@
             "slug": "entities",
             "children": [
                 {
-                    "prefix": "all",
+                    "prefix": "",
                     "slug": "all",
                     "method": "GET"
                 },
                 {
-                    "prefix": "define",
-                    "slug": "define",
+                    "prefix": "create",
+                    "slug": "create",
                     "method": "POST"
                 },
                 {
@@ -27,141 +27,16 @@
                     "method": "GET"
                 },
                 {
+                    "prefix": "update/{id}",
+                    "slug": "update",
+                    "method": "POST"
+                },
+                {
                     "prefix": "search",
                     "slug": "search",
                     "method": "GET"
-                },
-                {
-                    "prefix": "count",
-                    "slug": "count",
-                    "method": "GET"
-                },
-                {
-                    "prefix": "total",
-                    "slug": "total",
-                    "method": "GET"
-                },
-                {
-                    "prefix": "total_individuals",
-                    "slug": "total_individuals",
-                    "method": "GET"
-                },
-                {
-                    "prefix": "{target_entity_id}",
-                    "slug": "target_entity_id",
-                    "children": [
-                        {
-                            "prefix": "relations",
-                            "slug": "relations",
-                            "children": [
-                                {
-                                    "prefix": "all",
-                                    "slug": "all",
-                                    "method": "GET"
-                                },
-                                {
-                                    "prefix": "define",
-                                    "slug": "define",
-                                    "method": "POST"
-                                },
-                                {
-                                    "prefix": "delete/{id}",
-                                    "slug": "delete",
-                                    "method": "GET"
-                                },
-                                {
-                                    "prefix": "fetch/{id}",
-                                    "slug": "fetch",
-                                    "method": "GET"
-                                },
-                                {
-                                    "prefix": "search",
-                                    "slug": "search",
-                                    "method": "GET"
-                                }
-                            ]
-                        }
-                    ]
                 }
             ]
-        },
-        {
-          "prefix": "genealogies",
-          "slug": "genealogies",
-          "children": [
-              {
-                  "prefix": "all",
-                  "slug": "all",
-                  "method": "GET"
-              },
-              {
-                  "prefix": "define",
-                  "slug": "define",
-                  "method": "POST"
-              },
-              {
-                  "prefix": "create",
-                  "slug": "create",
-                  "method": "POST"
-              },
-              {
-                  "prefix": "delete/{id}",
-                  "slug": "delete",
-                  "method": "GET"
-              },
-              {
-                  "prefix": "fetch/{id}",
-                  "slug": "fetch",
-                  "method": "GET"
-              },
-              {
-                  "prefix": "search",
-                  "slug": "search",
-                  "method": "GET"
-              },
-              {
-                  "prefix": "registered",
-                  "slug": "registered",
-                  "method": "GET"
-              },
-              {
-                  "prefix": "{genealogy_id}",
-                  "slug": "genealogy_id",
-                  "child": [
-                      {
-                          "prefix": "members",
-                          "slug": "members",
-                          "children": [
-                              {
-                                  "prefix": "all",
-                                  "slug": "all",
-                                  "method": "GET"
-                              },
-                              {
-                                  "prefix": "define",
-                                  "slug": "define",
-                                  "method": "POST"
-                              },
-                              {
-                                  "prefix": "delete/{id}",
-                                  "slug": "delete",
-                                  "method": "GET"
-                              },
-                              {
-                                  "prefix": "fetch/{id}",
-                                  "slug": "fetch",
-                                  "method": "GET"
-                              },
-                              {
-                                  "prefix": "search",
-                                  "slug": "search",
-                                  "method": "GET"
-                              }
-                          ]
-                      }
-                  ]
-              }
-          ]
         }
     ]
 }
