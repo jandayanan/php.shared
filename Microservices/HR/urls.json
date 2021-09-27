@@ -439,6 +439,11 @@
                                     "prefix": "latest/{id}",
                                     "slug": "latest",
                                     "method": "GET"
+                                },
+                                {
+                                    "prefix": "open/{id}",
+                                    "slug": "open",
+                                    "method": "GET"
                                 }
                             ]
                         },
@@ -476,6 +481,11 @@
                                             "method": "POST"
                                         }
                                     ]
+                                },
+                                {
+                                    "prefix": "generate/{type}/{year}/{month}/{id}",
+                                    "slug": "generate_sheet",
+                                    "method": "GET"
                                 },
                                 {
                                     "prefix": "all",
