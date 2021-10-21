@@ -31,6 +31,11 @@
                             "method": "GET"
                         },
                         {
+                            "prefix": "latest/{id}",
+                            "slug": "latest",
+                            "method": "GET"
+                        },
+                        {
                             "prefix": "search",
                             "slug": "search",
                             "method": "GET"

@@ -3,6 +3,15 @@
 return [
     "classmap" => [
         "models" => [
+            "hr" => [
+                "payroll" => [
+                    "payroll" => "App\Data\Models\Payroll\Payroll",
+                    "detail" => "App\Data\Models\Payroll\PayrollDetail",
+                ],
+                "workforce" => [
+                    "employee" => "App\Data\Models\Workforce\Employees\Employee",
+                ]
+            ],
             "signup" => [
                 "signup" => "App\Data\Models\Signups\Signup",
                 "meta" => "App\Data\Models\Signups\SignupMeta",

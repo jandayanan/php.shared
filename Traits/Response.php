@@ -332,6 +332,14 @@ trait Response
     {
         return ($this->code >= 200 && $this->code <= 299);
     }
+
+    public function pluckData(){
+        if( !empty( $this->getData() ) ){
+            return $this->getData()[ array_key_first ( $this->getData() ) ];
+        }
+
+        return false;
+    }
     //endregion Behavioral
 
     //region Success Response
