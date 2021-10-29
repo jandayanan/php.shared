@@ -494,6 +494,11 @@
                                     "method": "GET"
                                 },
                                 {
+                                    "prefix": "fetch-log-sheets/{id}",
+                                    "slug": "fetch_log_sheets",
+                                    "method": "GET"
+                                },
+                                {
                                     "prefix": "search",
                                     "slug": "search",
                                     "method": "GET"
@@ -569,6 +574,34 @@
                                     "prefix": "fetch/{id}",
                                     "slug": "fetch",
                                     "method": "GET"
+                                },
+                                {
+                                    "prefix": "finalize/{id}",
+                                    "slug": "finalize",
+                                    "method": "GET"
+                                },
+                                {
+                                    "prefix": "generate",
+                                    "slug": "generates",
+                                    "children": [
+                                        {
+                                            "prefix": "{type}",
+                                            "slug": "type",
+                                            "children": [
+                                                {
+                                                    "prefix": "{year}",
+                                                    "slug": "year",
+                                                    "children": [
+                                                        {
+                                                            "prefix": "{month}",
+                                                            "slug": "month",
+                                                            "method": "GET"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 },
                                 {
                                     "prefix": "search",

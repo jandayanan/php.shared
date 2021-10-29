@@ -1,40 +1,609 @@
 {
-    "prefix": "api/v1",
+    "prefix": "",
     "slug": "",
     "children": [
         {
-            "prefix": "entities",
-            "slug": "entities",
+            "prefix": "api/v1",
+            "slug": "api",
             "children": [
                 {
-                    "prefix": "",
-                    "slug": "all",
-                    "method": "GET"
+                    "prefix": "auth",
+                    "slug": "auth",
+                    "children": [
+                        {
+                            "prefix": "define",
+                            "slug": "define",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "login",
+                            "slug": "login",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "logout",
+                            "slug": "logout",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "register",
+                            "slug": "register",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "user",
+                            "slug": "user",
+                            "method": "GET"
+                        }
+                    ]
                 },
                 {
-                    "prefix": "create",
-                    "slug": "create",
-                    "method": "POST"
+                    "prefix": "companies",
+                    "slug": "companies",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "create",
+                            "slug": "create",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "delete",
+                            "slug": "delete",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "POST"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "fetch",
+                            "slug": "fetch",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "GET"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "update",
+                            "slug": "update",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "POST"
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
-                    "prefix": "delete/{id}",
-                    "slug": "delete",
-                    "method": "GET"
+                    "prefix": "entities",
+                    "slug": "entities",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "create",
+                            "slug": "create",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "delete",
+                            "slug": "delete",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "POST"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "fetch",
+                            "slug": "fetch",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "GET"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "update",
+                            "slug": "update",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "POST"
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
-                    "prefix": "fetch/{id}",
-                    "slug": "fetch",
-                    "method": "GET"
+                    "prefix": "entity_relations",
+                    "slug": "entity_relations",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "delete",
+                            "slug": "delete",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "POST"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "fetch",
+                            "slug": "fetch",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "GET"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "update",
+                            "slug": "update",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "POST"
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
-                    "prefix": "update/{id}",
-                    "slug": "update",
-                    "method": "POST"
+                    "prefix": "genealogies",
+                    "slug": "genealogies",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "delete",
+                            "slug": "delete",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "POST"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "fetch",
+                            "slug": "fetch",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "GET"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "update",
+                            "slug": "update",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "POST"
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
-                    "prefix": "search",
-                    "slug": "search",
-                    "method": "GET"
+                    "prefix": "genealogy_members",
+                    "slug": "genealogy_members",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "delete",
+                            "slug": "delete",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "POST"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "fetch",
+                            "slug": "fetch",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "GET"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "update",
+                            "slug": "update",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "POST"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "prefix": "users",
+                    "slug": "users",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "assign",
+                            "slug": "assign",
+                            "children": [
+                                {
+                                    "prefix": "permission",
+                                    "slug": "permissions",
+                                    "children": [
+                                        {
+                                            "prefix": "{id}",
+                                            "slug": "id",
+                                            "method": "POST"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "prefix": "role",
+                                    "slug": "role",
+                                    "children": [
+                                        {
+                                            "prefix": "{id}",
+                                            "slug": "id",
+                                            "method": "POST"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "change",
+                            "slug": "change",
+                            "children": [
+                                {
+                                    "prefix": "password",
+                                    "slug": "password",
+                                    "children": [
+                                        {
+                                            "prefix": "{id}",
+                                            "slug": "id",
+                                            "method": "POST"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "define",
+                            "slug": "define",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "delete",
+                            "slug": "delete",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "POST"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "fetch",
+                            "slug": "fetch",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "GET"
+                                },
+                                {
+                                    "prefix": "permission",
+                                    "slug": "permission",
+                                    "children": [
+                                        {
+                                            "prefix": "{id}",
+                                            "slug": "id",
+                                            "method": "GET"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "prefix": "role",
+                                    "slug": "role",
+                                    "children": [
+                                        {
+                                            "prefix": "{id}",
+                                            "slug": "id",
+                                            "method": "GET"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "register",
+                            "slug": "register",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "remove",
+                            "slug": "remove",
+                            "children": [
+                                {
+                                    "prefix": "permission",
+                                    "slug": "permission",
+                                    "children": [
+                                        {
+                                            "prefix": "{id}",
+                                            "slug": "id",
+                                            "method": "GET"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "prefix": "role",
+                                    "slug": "role",
+                                    "children": [
+                                        {
+                                            "prefix": "{id}",
+                                            "slug": "id",
+                                            "method": "POST"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "prefix": "rbac",
+            "slug": "rbac",
+            "children": [
+                {
+                    "prefix": "permissions",
+                    "slug": "permissions",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "create",
+                            "slug": "create",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "delete",
+                            "slug": "delete",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "POST"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "fetch",
+                            "slug": "fetch",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "GET"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "update",
+                            "slug": "update",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "POST"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        }
+                    ]
+                },
+                {
+                    "prefix": "roles",
+                    "slug": "roles",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "create",
+                            "slug": "create",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "delete",
+                            "slug": "delete",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "POST"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "fetch",
+                            "slug": "fetch",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "GET"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "update",
+                            "slug": "update",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "POST"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "give",
+                            "slug": "give",
+                            "children": [
+                                {
+                                    "prefix": "permissions",
+                                    "slug": "permissions",
+                                    "children": [
+                                        {
+                                            "prefix": "{id}",
+                                            "slug": "id",
+                                            "method": "POST"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "revoke",
+                            "slug": "revoke",
+                            "children": [
+                                {
+                                    "prefix": "permissions",
+                                    "slug": "permissions",
+                                    "children": [
+                                        {
+                                            "prefix": "{id}",
+                                            "slug": "id",
+                                            "method": "POST"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "fetch",
+                            "slug": "fetch",
+                            "children": [
+                                {
+                                    "prefix": "permissions",
+                                    "slug": "permissions",
+                                    "children": [
+                                        {
+                                            "prefix": "{id}",
+                                            "slug": "id",
+                                            "method": "GET"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "users",
+                            "slug": "users",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        }
+                    ]
                 }
             ]
         }

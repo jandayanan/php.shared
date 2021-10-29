@@ -342,7 +342,11 @@ trait Response
     }
 
     public function pluckData(){
-        return $this->getData()[ array_key_first ( $this->getData() ) ];
+        if( !empty( $this->getData() ) ){
+            return $this->getData()[ array_key_first ( $this->getData() ) ];
+        }
+
+        return false;
     }
     //endregion Behavioral
 
