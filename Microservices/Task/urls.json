@@ -3,8 +3,8 @@
     "slug": "",
     "children": [
         {
-            "prefix": "schedules",
-            "slug": "schedules",
+            "prefix": "tasks",
+            "slug": "tasks",
             "children": [
                 {
                     "prefix": "all",
@@ -32,12 +32,12 @@
                     "method": "GET"
                 },
                 {
-                    "prefix": "{schedule_id}",
-                    "slug": "schedule_id",
+                    "prefix": "{task_id}",
+                    "slug": "task_id",
                     "children": [
                         {
-                            "prefix": "details",
-                            "slug": "details",
+                            "prefix": "logs",
+                            "slug": "logs",
                             "children": [
                                 {
                                     "prefix": "all",
@@ -65,42 +65,6 @@
                                     "method": "GET"
                                 }
                             ]
-                        }
-                    ]
-                },
-                {
-                    "prefix": "employees",
-                    "slug": "employees",
-                    "children": [
-                        {
-                            "prefix": "all",
-                            "slug": "all",
-                            "method": "GET"
-                        },
-                        {
-                            "prefix": "define",
-                            "slug": "define",
-                            "method": "POST"
-                        },
-                        {
-                            "prefix": "delete/{id}",
-                            "slug": "delete",
-                            "method": "GET"
-                        },
-                        {
-                            "prefix": "fetch/{id}",
-                            "slug": "fetch",
-                            "method": "GET"
-                        },
-                        {
-                            "prefix": "assign/{employee_id}",
-                            "slug": "assign",
-                            "method": "GET"
-                        },
-                        {
-                            "prefix": "search",
-                            "slug": "search",
-                            "method": "GET"
                         }
                     ]
                 }

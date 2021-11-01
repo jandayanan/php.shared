@@ -168,7 +168,12 @@ abstract class Microservice extends Host
             }
         }
 
-        $result = "/" . implode( "/", array_unique( $array ) );
+        $result = '';
+        foreach( array_unique( $array ) as $value ) {
+            if(!empty($value)){
+                $result .= '/'.$value;
+            }
+        }
 
         // Replace URL-based data
         if( $method === 'GET' ){
