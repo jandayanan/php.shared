@@ -93,7 +93,7 @@
                             "method": "GET"
                         },
                         {
-                            "prefix": "assign{employee_id}",
+                            "prefix": "assign/{employee_id}",
                             "slug": "assign",
                             "method": "GET"
                         },
