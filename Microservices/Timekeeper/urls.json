@@ -39,6 +39,16 @@
                             "prefix": "search",
                             "slug": "search",
                             "method": "GET"
+                        },
+                        {
+                            "prefix": "latest/{id}",
+                            "slug": "latest",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "open/{id}",
+                            "slug": "open",
+                            "method": "GET"
                         }
                     ]
                 },
@@ -91,7 +101,14 @@
                                                 {
                                                     "prefix": "{month}",
                                                     "slug": "month",
-                                                    "method": "GET"
+                                                    "method": "GET",
+                                                    "children": [
+                                                        {
+                                                            "prefix": "{id}",
+                                                            "slug": "id",
+                                                            "method": "GET"
+                                                        }
+                                                    ]
                                                 }
                                             ]
                                         }
