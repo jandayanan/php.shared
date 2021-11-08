@@ -52,6 +52,11 @@
                             "method": "GET"
                         },
                         {
+                            "prefix": "approve/{id}",
+                            "slug": "approve",
+                            "method": "GET"
+                        },
+                        {
                             "prefix": "define",
                             "slug": "define",
                             "method": "POST"
@@ -100,12 +105,22 @@
                             "method": "GET"
                         },
                         {
+                            "prefix": "reject/{id}",
+                            "slug": "reject",
+                            "method": "GET"
+                        },
+                        {
                             "prefix": "details",
                             "slug": "details",
                             "children": [
                                 {
                                     "prefix": "all",
                                     "slug": "all",
+                                    "method": "GET"
+                                },
+                                {
+                                    "prefix": "approve/{id}",
+                                    "slug": "approve",
                                     "method": "GET"
                                 },
                                 {
@@ -126,6 +141,11 @@
                                 {
                                     "prefix": "search",
                                     "slug": "search",
+                                    "method": "GET"
+                                },
+                                {
+                                    "prefix": "reject/{id}",
+                                    "slug": "reject",
                                     "method": "GET"
                                 }
                             ]
