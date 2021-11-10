@@ -594,6 +594,26 @@
                                     "prefix": "define",
                                     "slug": "define",
                                     "method": "POST"
+                                },
+                                {
+                                    "prefix": "finalize/{id}",
+                                    "slug": "finalize",
+                                    "method": "GET"
+                                },
+                                {
+                                    "prefix": "approve/{id}",
+                                    "slug": "approve",
+                                    "method": "GET"
+                                },
+                                {
+                                    "prefix": "reject/{id}",
+                                    "slug": "reject",
+                                    "method": "GET"
+                                },
+                                {
+                                    "prefix": "generate/{type}/{year}/{month}",
+                                    "slug": "generate_sheet",
+                                    "method": "GET"
                                 }
                             ]
                         }
