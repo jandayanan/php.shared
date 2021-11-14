@@ -146,6 +146,49 @@
                     ]
                 },
                 {
+                    "prefix": "entity_assignments",
+                    "slug": "entity_assignments",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "delete",
+                            "slug": "delete",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "GET"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "fetch",
+                            "slug": "fetch",
+                            "children": [
+                                {
+                                    "prefix": "{id}",
+                                    "slug": "id",
+                                    "method": "GET"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "define",
+                            "slug": "define",
+                            "method": "POST"
+                        }
+                    ]
+                },
+                {
                     "prefix": "entity_relations",
                     "slug": "entity_relations",
                     "children": [
