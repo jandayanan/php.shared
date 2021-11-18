@@ -554,6 +554,16 @@
                                             "method": "GET"
                                         },
                                         {
+                                            "prefix": "approve/{id}",
+                                            "slug": "approve_sheet_detail",
+                                            "method": "GET"
+                                        },
+                                        {
+                                            "prefix": "reject/{id}",
+                                            "slug": "reject_sheet_detail",
+                                            "method": "GET"
+                                        },
+                                        {
                                             "prefix": "search",
                                             "slug": "search",
                                             "method": "GET"
@@ -619,6 +629,36 @@
                                     "prefix": "approve/{id}",
                                     "slug": "approve",
                                     "method": "GET"
+                                },
+                                {
+                                    "prefix": "generate",
+                                    "slug": "generates",
+                                    "children": [
+                                        {
+                                            "prefix": "{type}",
+                                            "slug": "type",
+                                            "children": [
+                                                {
+                                                    "prefix": "{year}",
+                                                    "slug": "year",
+                                                    "children": [
+                                                        {
+                                                            "prefix": "{month}",
+                                                            "slug": "month",
+                                                            "method": "GET",
+                                                            "children": [
+                                                                {
+                                                                    "prefix": "{employee_id}",
+                                                                    "slug": "employee_id",
+                                                                    "method": "GET"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 },
                                 {
                                     "prefix": "reject/{id}",
