@@ -532,8 +532,8 @@ abstract class Repository
     }
 
     protected function makeModel( $data, $model ){
-        if(isset( $data['fresh']) && $data['fresh']==true){
-            $model = refresh_model ( $this->log);
+        if( isset( $data['fresh']) && $data['fresh'] == true ){
+            $model = refresh_model ($model);
         }
 
         return $model;
