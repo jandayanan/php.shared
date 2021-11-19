@@ -489,6 +489,16 @@
                                     "method": "GET"
                                 },
                                 {
+                                    "prefix": "latest/{id}",
+                                    "slug": "latest",
+                                    "method": "GET"
+                                },
+                                {
+                                    "prefix": "open/{id}",
+                                    "slug": "open",
+                                    "method": "GET"
+                                },
+                                {
                                     "prefix": "fetch/{id}",
                                     "slug": "fetch",
                                     "method": "GET"
@@ -502,6 +512,16 @@
                                     "prefix": "define",
                                     "slug": "define",
                                     "method": "POST"
+                                },
+                                {
+                                    "prefix": "latest/{id}",
+                                    "slug": "latest",
+                                    "method": "GET"
+                                },
+                                {
+                                    "prefix": "open/{id}",
+                                    "slug": "open",
+                                    "method": "GET"
                                 }
                             ]
                         },
@@ -534,6 +554,16 @@
                                             "method": "GET"
                                         },
                                         {
+                                            "prefix": "approve/{id}",
+                                            "slug": "approve_sheet_detail",
+                                            "method": "GET"
+                                        },
+                                        {
+                                            "prefix": "reject/{id}",
+                                            "slug": "reject_sheet_detail",
+                                            "method": "GET"
+                                        },
+                                        {
                                             "prefix": "search",
                                             "slug": "search",
                                             "method": "GET"
@@ -549,6 +579,11 @@
                                             "method": "POST"
                                         }
                                     ]
+                                },
+                                {
+                                    "prefix": "generate/{type}/{year}/{month}/{id}",
+                                    "slug": "generate_sheet",
+                                    "method": "GET"
                                 },
                                 {
                                     "prefix": "all",
@@ -584,6 +619,56 @@
                                     "prefix": "define",
                                     "slug": "define",
                                     "method": "POST"
+                                },
+                                {
+                                    "prefix": "finalize/{id}",
+                                    "slug": "finalize",
+                                    "method": "GET"
+                                },
+                                {
+                                    "prefix": "approve/{id}",
+                                    "slug": "approve",
+                                    "method": "GET"
+                                },
+                                {
+                                    "prefix": "generate",
+                                    "slug": "generates",
+                                    "children": [
+                                        {
+                                            "prefix": "{type}",
+                                            "slug": "type",
+                                            "children": [
+                                                {
+                                                    "prefix": "{year}",
+                                                    "slug": "year",
+                                                    "children": [
+                                                        {
+                                                            "prefix": "{month}",
+                                                            "slug": "month",
+                                                            "method": "GET",
+                                                            "children": [
+                                                                {
+                                                                    "prefix": "{employee_id}",
+                                                                    "slug": "employee_id",
+                                                                    "method": "GET"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "prefix": "reject/{id}",
+                                    "slug": "reject",
+                                    "method": "GET"
+                                },
+                                {
+                                    "prefix": "generate/{type}/{year}/{month}",
+                                    "slug": "generate_sheet",
+                                    "method": "GET"
                                 }
                             ]
                         }

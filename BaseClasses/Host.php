@@ -2,6 +2,11 @@
 
 namespace Shared\BaseClasses;
 
+use GuzzleHttp\HandlerStack;
+use Monolog\Handler\TestHandler;
+use Monolog\Logger;
+use Namshi\Cuzzle\Formatter\CurlFormatter;
+use Namshi\Cuzzle\Middleware\CurlFormatterMiddleware;
 use Shared\Traits\Response;
 use \GuzzleHttp\Client;
 
@@ -25,6 +30,11 @@ abstract class Host
 
     // region Guzzle Flags
     protected $verify=false;
+
+    /**
+     * @var TestHandler $log_handler
+     */
+    protected $log_handler;
     // endregion Guzzle Flags
 
     public function __construct($options = [], $url = "")
@@ -85,7 +95,7 @@ abstract class Host
     public function fetchRawResponse($method, $path, $data = [], $generate = false, $request=[])
     {
         $response = null;
-        if( isset($data['__debug']['dump_full_path']) && $data['__debug']['dump_full_path'] === true ){
+        if( isset($data['__debug']['dump_full_path']) && $data['__debug']['dump_full_path'] == true ){
             var_dump( $data );
         }
 
@@ -113,13 +123,13 @@ abstract class Host
             dd( $e );
         }
 
-        if( isset($request['__debug']['dump_url']) && $request['__debug']['dump_url'] === true ){
+        if( isset($request['__debug']['dump_url']) && $request['__debug']['dump_url'] == true ){
             var_dump( $path );
         }
-        if( isset($request['__debug']['dump_result']) && $request['__debug']['dump_result'] === true ){
+        if( isset($request['__debug']['dump_result']) && $request['__debug']['dump_result'] == true ){
             var_dump( $response->getStatusCode (), $response );
         }
-        if( isset($request['__debug']['die']) && $request['__debug']['die'] === true ){
+        if( isset($request['__debug']['die']) && $request['__debug']['die'] == true ){
             exit();
         }
 
@@ -167,10 +177,18 @@ abstract class Host
      */
     protected function initializeClient($options = [], $url = "")
     {
+        $logger = new Logger('guzzle.to.curl'); //initialize the logger
+        $this->log_handler = new TestHandler(); //test logger handler
+        $logger->pushHandler($this->log_handler);
+
+        $handler = HandlerStack::create();
+        $handler->after('cookies', new CurlFormatterMiddleware($logger)); //add the cURL formatter middleware
+
         $url = $url === "" ? $this->base_url : $url;
         $options = array_merge($options, $this->options);
         $this->client = new Client(
             array_merge([
+                "handler" => $handler,
                 "base_uri" => $url,
                 "verify" => $this->verify,
             ], $options)
@@ -247,5 +265,9 @@ abstract class Host
         }
 
         return $this->fetchRawResponse('POST', $path, $post_data, true, $request);
+    }
+
+    public function getCurlRecords(){
+        return $this->log_handler->getRecords();
     }
 }

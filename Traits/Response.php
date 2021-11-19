@@ -318,9 +318,17 @@ trait Response
      * @param Response $other
      * @return Response
      */
-    public function absorb($other)
+    public function absorb($other, $data=null )
     {
-        return $this->setResponse($other->getResponse());
+        $this->setResponse($other->getResponse());
+
+        if( isset( $data['__response'] ) ){
+            if( isset( $data['__response'][ $this->getCode() ] ) ){
+                $this->setMessage ( $data['__response'][ $this->getCode() ] );
+            }
+        }
+
+        return $this;
     }
 
     public function isError()

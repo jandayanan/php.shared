@@ -9,7 +9,7 @@ use Symfony\Component\Debug\Debug;
 
 class ForceDebug
 {
-    protected $salt="viewqwest.com";
+    protected $salt="e20v";
 
 
     /**
