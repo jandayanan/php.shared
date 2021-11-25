@@ -41,6 +41,22 @@ if( !function_exists('shared_config') ){
     }
 }
 
+
+if( !function_exists('shared_config_pluck') ){
+    /**
+     * Returns shared's configuration file with specified key on top level only.
+     *
+     * @param $key
+     * @param string $file
+     * @return mixed
+     */
+    function shared_config_pluck( $key, $file="shared" ){
+        $config = require base_path( "shared/config/" . $file . ".php" );
+
+        return isset( $config[ $key ] ) ? $config[ $key ] : null;
+    }
+}
+
 if( !function_exists("class_of_model") ){
     function class_of_model( $slug, $invoke=false ){
         $model = shared_config( "classmap.models." . $slug );

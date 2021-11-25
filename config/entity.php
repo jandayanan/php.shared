@@ -10,10 +10,6 @@ $fields = [
         'required' => true,
     ],
     [
-        'key' => 'username',
-        'required' => false,
-    ],
-    [
         'key' => 'email',
         'required' => false,
     ],
