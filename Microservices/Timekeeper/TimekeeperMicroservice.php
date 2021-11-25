@@ -15,7 +15,7 @@ class TimekeeperMicroservice extends Microservice
     public function __construct()
     {
         $this->app_slug = "services.timekeeper.app.code";
-        $this->base_url = env("SCHEDULE_API_ENDPOINT", 'http://e20v.svc.timekeeper');
+        $this->base_url = env("TIMEKEEPER_API_ENDPOINT", 'http://e20v.svc.timekeeper');
         $this->options = [];
         $this->auth_flag = true;
 

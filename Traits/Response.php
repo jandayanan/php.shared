@@ -318,9 +318,17 @@ trait Response
      * @param Response $other
      * @return Response
      */
-    public function absorb($other)
+    public function absorb($other, $data=null )
     {
-        return $this->setResponse($other->getResponse());
+        $this->setResponse($other->getResponse());
+
+        if( isset( $data['__response'] ) ){
+            if( isset( $data['__response'][ $this->getCode() ] ) ){
+                $this->setMessage ( $data['__response'][ $this->getCode() ] );
+            }
+        }
+
+        return $this;
     }
 
     public function isError()
@@ -331,6 +339,14 @@ trait Response
     public function isSuccess()
     {
         return ($this->code >= 200 && $this->code <= 299);
+    }
+
+    public function pluckData(){
+        if( !empty( $this->getData() ) ){
+            return $this->getData()[ array_key_first ( $this->getData() ) ];
+        }
+
+        return false;
     }
     //endregion Behavioral
 
