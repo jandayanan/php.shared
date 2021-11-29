@@ -43,13 +43,23 @@ abstract class Microservice extends Host
         if( $debug === true ){
             exit();
         }
+        $clean_data = clean_array_debug ( $data );
 
         try {
 
             $result = $this->$method( $url, $data, $this->headers );
 
+            if( isset($data['__debug']['dump_data']) && $data['__debug']['dump_data'] === true ){
+                var_dump("[DEBUG][CLEAN DATA]", $clean_data );
+            }
             if( isset($data['__debug']['dump_result']) && $data['__debug']['dump_result'] === true ){
-                var_dump( "[DEBUG][DUMP_RESULT]", $result );
+                var_dump("[DEBUG][RESULT]", $result );
+            }
+            if( isset($data['__debug']['dump_url']) && $data['__debug']['dump_url'] === true ){
+                var_dump("[DEBUG][URL]", $url );
+            }
+            if( isset($data['__debug']['die']) && $data['__debug']['die'] === true ){
+                exit();
             }
 
             if ( !is_array( $result ) && object_has_trait(Response::class, $result)) {
