@@ -539,11 +539,6 @@
                                             "method": "GET"
                                         },
                                         {
-                                            "prefix": "approve/{id}",
-                                            "slug": "approve",
-                                            "method": "GET"
-                                        },
-                                        {
                                             "prefix": "delete/{id}",
                                             "slug": "delete",
                                             "method": "GET"
@@ -554,23 +549,18 @@
                                             "method": "GET"
                                         },
                                         {
-                                            "prefix": "approve/{id}",
+                                            "prefix": "approve",
                                             "slug": "approve_sheet_detail",
                                             "method": "GET"
                                         },
                                         {
-                                            "prefix": "reject/{id}",
+                                            "prefix": "reject",
                                             "slug": "reject_sheet_detail",
                                             "method": "GET"
                                         },
                                         {
                                             "prefix": "search",
                                             "slug": "search",
-                                            "method": "GET"
-                                        },
-                                        {
-                                            "prefix": "reject/{id}",
-                                            "slug": "reject",
                                             "method": "GET"
                                         },
                                         {
