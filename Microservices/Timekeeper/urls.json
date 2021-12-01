@@ -134,7 +134,7 @@
                                     "method": "GET"
                                 },
                                 {
-                                    "prefix": "approve/{id}",
+                                    "prefix": "approve",
                                     "slug": "approve",
                                     "method": "GET"
                                 },
@@ -159,7 +159,7 @@
                                     "method": "GET"
                                 },
                                 {
-                                    "prefix": "reject/{id}",
+                                    "prefix": "reject",
                                     "slug": "reject",
                                     "method": "GET"
                                 }
