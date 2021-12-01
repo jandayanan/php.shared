@@ -129,6 +129,7 @@ abstract class Microservice extends Host
                         "base_url" => $this->base_url,
                     ],
                     "data" => $data,
+                    "result" => $result,
                 ])
             ]);
 
