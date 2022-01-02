@@ -45,6 +45,10 @@ abstract class Controller extends LaravelController
             $code = $this->getCode();
         }
 
+        if( $code < 100 ){
+            $code = $code < 100 ? 200 : $code;
+        }
+
         return response()->json($this->getResponse(), $code);
     }
 
