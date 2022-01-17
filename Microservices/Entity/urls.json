@@ -357,19 +357,29 @@
                             "method": "GET"
                         },
                         {
+                            "prefix": "manage",
+                            "slug": "manage",
+                            "children": [
+                                {
+                                    "prefix": "permission",
+                                    "slug": "permission",
+                                    "method": "POST"
+                                },
+                                {
+                                    "prefix": "role",
+                                    "slug": "role",
+                                    "method": "POST"
+                                }
+                            ]
+                        },
+                        {
                             "prefix": "assign",
                             "slug": "assign",
                             "children": [
                                 {
                                     "prefix": "permission",
-                                    "slug": "permissions",
-                                    "children": [
-                                        {
-                                            "prefix": "{id}",
-                                            "slug": "id",
-                                            "method": "POST"
-                                        }
-                                    ]
+                                    "slug": "permission",
+                                    "method": "POST"
                                 },
                                 {
                                     "prefix": "role",
