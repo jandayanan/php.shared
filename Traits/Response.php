@@ -149,8 +149,16 @@ trait Response
      * @param mixed $data
      * @return $this
      */
-    public function setData($data)
+    public function setData($data, $key="" )
     {
+        if( trim( $key ) !== "" ){
+            $prev_data = $this->data;
+
+            $prev_data[ $key ] = $data;
+
+            $data = $prev_data;
+        }
+
         $this->data = $data;
         return $this;
     }
