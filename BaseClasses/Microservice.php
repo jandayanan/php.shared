@@ -36,6 +36,10 @@ abstract class Microservice extends Host
             var_dump( "[DEBUG][DUMP_URL]", $url );
         }
 
+        if( isset($data['__debug']['dump_method']) && $data['__debug']['dump_method'] === true ){
+            var_dump( "[DEBUG][DUMP_METHOD]", $method );
+        }
+
         if( isset($data['__debug']['dump_params']) && $data['__debug']['dump_params'] === true ){
             var_dump( "[DEBUG][DUMP_URL]", $data );
         }
@@ -149,7 +153,78 @@ abstract class Microservice extends Host
         $this->headers = array_merge($this->headers, $headers);
     }
 
-    protected function makeUrlFromSlug( $slug, $data = [], &$method="GET", $query=[] )
+
+    protected function flattenUrls( $urls, $current_key="", $current_prefix="", $target_key="slug", $prefix_key="prefix" ){
+        $compiled = [];
+
+        if( array_key_exists ( "children", $urls ) ){
+            return $this->flattenUrls ( $urls['children'], $current_key, $current_prefix, $target_key, $prefix_key );
+        }
+
+        foreach( $urls as $key => $url ){
+            $new_url = ( $current_key != "" ? $current_key . "." : "" ) . $url[ $target_key ];
+//            $new_prefix = ( $current_prefix != "" ? $current_prefix . "/" : "" ) . $url[ $prefix_key ];
+            $new_prefix = $current_prefix . "/" . $url[ $prefix_key ];
+            if( is_array( $url ) && array_key_exists ( "children", $url ) ){
+//                var_dump("HAS KEY", $url);
+                $recursed = $this->flattenUrls (
+                    $url['children'],
+                    $new_url,
+                    $new_prefix,
+                    $target_key,
+                    $prefix_key
+                );
+
+                if( !empty( $recursed ) ){
+                    foreach( $recursed as $key => $item ){
+                        $compiled[ $key ] = $item;
+                    }
+                }
+            } else {
+                $url[ 'full_url' ] = $new_prefix;
+                $compiled[ $new_url ] = $url;
+            }
+        }
+
+        return $compiled;
+    }
+
+    protected function makeUrlFromSlug( $slug, $data = [], &$method="GET", $query=[] ){
+        if( !array_key_exists ( $slug, $this->flattenUrls ( $this->urls ) ) ){
+            return false;
+        }
+
+        $url = $this->flattenUrls ( $this->urls )[ $slug ];
+
+        if( !array_key_exists ( "full_url", $url ) || trim( $url['full_url'] ) === "" ){
+            return false;
+        }
+
+        $method = array_key_exists ( "method", $url ) ? $url['method'] : $method;
+        $result = $url['full_url'];
+
+        // Replace URL-based data
+//        if( $method === 'GET' ){
+        if( true ){
+            foreach( $data as $key => $datum ){
+                if ( str_contains( $key, "__" ) || is_array( $datum ) ) {
+                    continue;
+                }
+                $result = str_replace( "{" . $key . "}", $datum, $result );
+            }
+        }
+
+        if( isset( $query ) && !empty( $query ) ){
+            $result .= strpos( $result, "?" ) ? "" : "?";
+            foreach( (array) $query as $k => $v ){
+                $result .= "&" . $k . "=" . $v;
+            }
+        }
+        
+        return $result;
+    }
+
+    protected function makeUrlFromSlug_( $slug, $data = [], &$method="GET", $query=[] )
     {
         $urls = $this->urls;
         $slug = explode( '.', $slug );

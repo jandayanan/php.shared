@@ -126,6 +126,9 @@ abstract class Host
         if( isset($request['__debug']['dump_url']) && $request['__debug']['dump_url'] == true ){
             var_dump( $path );
         }
+        if( isset($request['__debug']['dump_method']) && $request['__debug']['dump_method'] == true ){
+            var_dump( $method );
+        }
         if( isset($request['__debug']['dump_result']) && $request['__debug']['dump_result'] == true ){
             var_dump( $response->getStatusCode (), $response );
         }
