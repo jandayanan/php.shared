@@ -1,68 +1,74 @@
 {
-    "prefix": "api/v1",
+    "prefix": "",
     "slug": "",
     "children": [
         {
-            "prefix": "tasks",
-            "slug": "tasks",
+            "prefix": "api/v1",
+            "slug": "",
             "children": [
                 {
-                    "prefix": "all",
-                    "slug": "all",
-                    "method": "GET"
-                },
-                {
-                    "prefix": "define",
-                    "slug": "define",
-                    "method": "POST"
-                },
-                {
-                    "prefix": "delete/{id}",
-                    "slug": "delete",
-                    "method": "GET"
-                },
-                {
-                    "prefix": "fetch/{id}",
-                    "slug": "fetch",
-                    "method": "GET"
-                },
-                {
-                    "prefix": "search",
-                    "slug": "search",
-                    "method": "GET"
-                },
-                {
-                    "prefix": "{task_id}",
-                    "slug": "task_id",
+                    "prefix": "tasks",
+                    "slug": "tasks",
                     "children": [
                         {
-                            "prefix": "logs",
-                            "slug": "logs",
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "define",
+                            "slug": "define",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "delete/{id}",
+                            "slug": "delete",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "fetch/{id}",
+                            "slug": "fetch",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "{task_id}",
+                            "slug": "task_id",
                             "children": [
                                 {
-                                    "prefix": "all",
-                                    "slug": "all",
-                                    "method": "GET"
-                                },
-                                {
-                                    "prefix": "define",
-                                    "slug": "define",
-                                    "method": "POST"
-                                },
-                                {
-                                    "prefix": "delete/{id}",
-                                    "slug": "delete",
-                                    "method": "GET"
-                                },
-                                {
-                                    "prefix": "fetch/{id}",
-                                    "slug": "fetch",
-                                    "method": "GET"
-                                },
-                                {
-                                    "prefix": "search",
-                                    "slug": "search",
-                                    "method": "GET"
+                                    "prefix": "logs",
+                                    "slug": "logs",
+                                    "children": [
+                                        {
+                                            "prefix": "all",
+                                            "slug": "all",
+                                            "method": "GET"
+                                        },
+                                        {
+                                            "prefix": "define",
+                                            "slug": "define",
+                                            "method": "POST"
+                                        },
+                                        {
+                                            "prefix": "delete/{id}",
+                                            "slug": "delete",
+                                            "method": "GET"
+                                        },
+                                        {
+                                            "prefix": "fetch/{id}",
+                                            "slug": "fetch",
+                                            "method": "GET"
+                                        },
+                                        {
+                                            "prefix": "search",
+                                            "slug": "search",
+                                            "method": "GET"
+                                        }
+                                    ]
                                 }
                             ]
                         }

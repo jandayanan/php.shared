@@ -40,16 +40,6 @@
                                     "method": "GET"
                                 },
                                 {
-                                    "prefix": "latest/{id}",
-                                    "slug": "latest",
-                                    "method": "GET"
-                                },
-                                {
-                                    "prefix": "open/{id}",
-                                    "slug": "open",
-                                    "method": "GET"
-                                },
-                                {
                                     "prefix": "search",
                                     "slug": "search",
                                     "method": "GET"
