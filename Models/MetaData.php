@@ -13,10 +13,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class MetaData extends Model
 {
+    protected $attributes = [
+        'company_id' => 0,
+    ];
+
     /**
      * @var array
      */
-    protected $fillable = ['key', 'value'];
+    protected $fillable = ['key', 'value', 'target_type'];
 
     /**
      * @var array
