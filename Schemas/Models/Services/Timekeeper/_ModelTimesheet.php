@@ -10,6 +10,7 @@ namespace Shared\Schema\Models\Services\TimeKeeper;
 /**
  * Interface _ModelTimesheet
  * @package Shared\Schema\Models\Services\TimeKeeper
+ * @inheritdoc Shared\BaseClasses\Model
  *
  * @property $id
  * @property $tenant_id

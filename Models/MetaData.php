@@ -11,6 +11,26 @@ namespace Shared\Models;
 use DateTime;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class MetaData
+ * @package Shared\Models
+ *
+ * @property $id
+ * @property $company_id
+ * @property $parent_id
+ * @property $target_type
+ * @property $target_id
+ * @property $key
+ * @property $value
+ * @property $type
+ * @property $status
+ * @property $created_by
+ * @property $updated_by
+ * @property $deleted_by
+ * @property $created_at
+ * @property $updated_at
+ * @property $deleted_at
+ */
 class MetaData extends Model
 {
     /**
