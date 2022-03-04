@@ -1,0 +1,178 @@
+{
+    "prefix": "",
+    "slug": "",
+    "children": [
+        {
+            "prefix": "api/v1",
+            "slug": "",
+            "children": [
+                {
+                    "prefix": "actor",
+                    "slug": "actor",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "define",
+                            "slug": "define",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "delete/{id}",
+                            "slug": "delete",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "fetch/{id}",
+                            "slug": "fetch",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        }
+                    ]
+                },
+                {
+                    "prefix": "config",
+                    "slug": "config",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "define",
+                            "slug": "define",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "delete/{id}",
+                            "slug": "delete",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "fetch/{id}",
+                            "slug": "fetch",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        }
+                    ]
+                },
+                {
+                    "prefix": "meta",
+                    "slug": "meta",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "define",
+                            "slug": "define",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "delete/{id}",
+                            "slug": "delete",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "fetch/{id}",
+                            "slug": "fetch",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        }
+                    ]
+                },
+                {
+                    "prefix": "session",
+                    "slug": "session",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "define",
+                            "slug": "define",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "delete/{id}",
+                            "slug": "delete",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "fetch/{id}",
+                            "slug": "fetch",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "of",
+                            "slug": "of",
+                            "children": [
+                                {
+                                    "prefix": "actor/{actor_id}",
+                                    "slug": "actor",
+                                    "method": "GET"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "prefix": "variable",
+                    "slug": "variable",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "define",
+                            "slug": "define",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "delete/{id}",
+                            "slug": "delete",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "fetch/{id}",
+                            "slug": "fetch",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

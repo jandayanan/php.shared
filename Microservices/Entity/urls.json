@@ -119,6 +119,7 @@
                         {
                             "prefix": "fetch",
                             "slug": "fetch",
+                            "method": "GET",
                             "children": [
                                 {
                                     "prefix": "{id}",
