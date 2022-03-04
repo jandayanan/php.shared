@@ -1,153 +1,192 @@
 {
-    "prefix": "v1",
-    "slug": "v1",
+    "prefix": "",
+    "slug": "",
     "children": [
         {
-            "prefix": "definition",
-            "slug": "definition",
+            "prefix": "api/v1",
+            "slug": "",
             "children": [
                 {
-                    "prefix": "approvers",
-                    "slug": "approvers",
+                    "prefix": "definition",
+                    "slug": "definition",
                     "children": [
                         {
-                            "method": "GET",
-                            "prefix": "all",
-                            "slug": "all"
-                        },
-                        {
-                            "prefix": "define",
-                            "slug": "define",
-                            "method": "POST"
-                        },
-                        {
-                            "method": "GET",
-                            "prefix": "delete/{id}",
-                            "slug": "delete"
-                        },
-                        {
-                            "method": "GET",
-                            "prefix": "fetch/{id}",
-                            "slug": "fetch"
-                        },
-                        {
-                            "method": "GET",
-                            "prefix": "search",
-                            "slug": "search"
-                        }
-                    ]
-                },
-                {
-                    "prefix": "flow_controls",
-                    "slug": "flow_controls",
-                    "children": [
-                        {
-                            "method": "GET",
-                            "prefix": "all",
-                            "slug": "all"
-                        },
-                        {
-                            "prefix": "check",
-                            "slug": "check",
-                            "children": {
-                                "prefix": "{slug}",
-                                "slug": "slug",
-                                "method": "GET"
-                            }
-                        },
-                        {
-                            "method": "POST",
-                            "prefix": "define",
-                            "slug": "define"
-                        },
-                        {
-                            "method": "GET",
-                            "prefix": "delete/{id}",
-                            "slug": "delete"
-                        },
-                        {
-                            "method": "GET",
-                            "prefix": "fetch/{id}",
-                            "slug": "fetch"
-                        },
-                        {
-                            "method": "GET",
-                            "prefix": "search",
-                            "slug": "search"
-                        },
-                        {
-                            "prefix": "{flow_control_id}",
-                            "slug": "flow_control_id",
+                            "prefix": "approvers",
+                            "slug": "approvers",
                             "children": [
                                 {
-                                    "prefix": "approvers",
-                                    "slug": "approvers",
+                                    "method": "GET",
+                                    "prefix": "all",
+                                    "slug": "all"
+                                },
+                                {
+                                    "prefix": "define",
+                                    "slug": "define",
+                                    "method": "POST"
+                                },
+                                {
+                                    "method": "GET",
+                                    "prefix": "delete/{id}",
+                                    "slug": "delete"
+                                },
+                                {
+                                    "method": "GET",
+                                    "prefix": "fetch/{id}",
+                                    "slug": "fetch"
+                                },
+                                {
+                                    "method": "GET",
+                                    "prefix": "search",
+                                    "slug": "search"
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "flow_controls",
+                            "slug": "flow_controls",
+                            "children": [
+                                {
+                                    "method": "GET",
+                                    "prefix": "all",
+                                    "slug": "all"
+                                },
+                                {
+                                    "prefix": "check",
+                                    "slug": "check",
                                     "children": [
                                         {
-                                            "method": "GET",
-                                            "prefix": "all",
-                                            "slug": "all"
-                                        },
-                                        {
-                                            "prefix": "define",
-                                            "slug": "define",
-                                            "method": "POST"
-                                        },
-                                        {
-                                            "method": "GET",
-                                            "prefix": "delete/{id}",
-                                            "slug": "delete"
-                                        },
-                                        {
-                                            "method": "GET",
-                                            "prefix": "fetch/{id}",
-                                            "slug": "fetch"
-                                        },
-                                        {
-                                            "method": "GET",
-                                            "prefix": "search",
-                                            "slug": "search"
+                                            "prefix": "{slug}",
+                                            "slug": "slug",
+                                            "method": "GET"
                                         }
                                     ]
                                 },
                                 {
-                                    "prefix": "rules",
-                                    "slug": "rules",
+                                    "method": "POST",
+                                    "prefix": "define",
+                                    "slug": "define"
+                                },
+                                {
+                                    "method": "GET",
+                                    "prefix": "delete/{id}",
+                                    "slug": "delete"
+                                },
+                                {
+                                    "method": "GET",
+                                    "prefix": "fetch/{id}",
+                                    "slug": "fetch"
+                                },
+                                {
+                                    "method": "GET",
+                                    "prefix": "search",
+                                    "slug": "search"
+                                },
+                                {
+                                    "prefix": "{flow_control_id}",
+                                    "slug": "flow_control_id",
                                     "children": [
                                         {
-                                            "method": "GET",
-                                            "prefix": "all",
-                                            "slug": "all"
+                                            "prefix": "approvers",
+                                            "slug": "approvers",
+                                            "children": [
+                                                {
+                                                    "method": "GET",
+                                                    "prefix": "all",
+                                                    "slug": "all"
+                                                },
+                                                {
+                                                    "prefix": "define",
+                                                    "slug": "define",
+                                                    "method": "POST"
+                                                },
+                                                {
+                                                    "method": "GET",
+                                                    "prefix": "delete/{id}",
+                                                    "slug": "delete"
+                                                },
+                                                {
+                                                    "method": "GET",
+                                                    "prefix": "fetch/{id}",
+                                                    "slug": "fetch"
+                                                },
+                                                {
+                                                    "method": "GET",
+                                                    "prefix": "search",
+                                                    "slug": "search"
+                                                }
+                                            ]
                                         },
                                         {
-                                            "prefix": "define",
-                                            "slug": "define",
-                                            "method": "POST"
-                                        },
-                                        {
-                                            "method": "GET",
-                                            "prefix": "delete/{id}",
-                                            "slug": "delete"
-                                        },
-                                        {
-                                            "method": "GET",
-                                            "prefix": "fetch/{id}",
-                                            "slug": "fetch"
-                                        },
-                                        {
-                                            "method": "GET",
-                                            "prefix": "search",
-                                            "slug": "search"
+                                            "prefix": "rules",
+                                            "slug": "rules",
+                                            "children": [
+                                                {
+                                                    "method": "GET",
+                                                    "prefix": "all",
+                                                    "slug": "all"
+                                                },
+                                                {
+                                                    "prefix": "define",
+                                                    "slug": "define",
+                                                    "method": "POST"
+                                                },
+                                                {
+                                                    "method": "GET",
+                                                    "prefix": "delete/{id}",
+                                                    "slug": "delete"
+                                                },
+                                                {
+                                                    "method": "GET",
+                                                    "prefix": "fetch/{id}",
+                                                    "slug": "fetch"
+                                                },
+                                                {
+                                                    "method": "GET",
+                                                    "prefix": "search",
+                                                    "slug": "search"
+                                                }
+                                            ]
                                         }
                                     ]
+                                }
+                            ]
+                        },
+                        {
+                            "prefix": "rules",
+                            "slug": "rules",
+                            "children": [
+                                {
+                                    "method": "GET",
+                                    "prefix": "all",
+                                    "slug": "all"
+                                },
+                                {
+                                    "prefix": "define",
+                                    "slug": "define",
+                                    "method": "POST"
+                                },
+                                {
+                                    "method": "GET",
+                                    "prefix": "delete/{id}",
+                                    "slug": "delete"
+                                },
+                                {
+                                    "method": "GET",
+                                    "prefix": "fetch/{id}",
+                                    "slug": "fetch"
+                                },
+                                {
+                                    "method": "GET",
+                                    "prefix": "search",
+                                    "slug": "search"
                                 }
                             ]
                         }
                     ]
                 },
                 {
-                    "prefix": "rules",
-                    "slug": "rules",
+                    "prefix": "metas",
+                    "slug": "metas",
                     "children": [
                         {
                             "method": "GET",
@@ -175,171 +214,140 @@
                             "slug": "search"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "prefix": "metas",
-            "slug": "metas",
-            "children": [
-                {
-                    "method": "GET",
-                    "prefix": "all",
-                    "slug": "all"
                 },
                 {
-                    "prefix": "define",
-                    "slug": "define",
-                    "method": "POST"
-                },
-                {
-                    "method": "GET",
-                    "prefix": "delete/{id}",
-                    "slug": "delete"
-                },
-                {
-                    "method": "GET",
-                    "prefix": "fetch/{id}",
-                    "slug": "fetch"
-                },
-                {
-                    "method": "GET",
-                    "prefix": "search",
-                    "slug": "search"
-                }
-            ]
-        },
-        {
-            "prefix": "request",
-            "slug": "request",
-            "children": [
-                {
-                    "method": "GET",
-                    "prefix": "all",
-                    "slug": "all"
-                },
-                {
-                    "prefix": "define",
-                    "slug": "define",
-                    "method": "POST"
-                },
-                {
-                    "method": "GET",
-                    "prefix": "delete/{id}",
-                    "slug": "delete"
-                },
-                {
-                    "method": "GET",
-                    "prefix": "fetch/{id}",
-                    "slug": "fetch"
-                },
-                {
-                    "method": "GET",
-                    "prefix": "search",
-                    "slug": "search"
-                },
-                {
-                    "prefix": "{request_id}",
-                    "slug": "request_id",
+                    "prefix": "request",
+                    "slug": "request",
                     "children": [
-                        [
-                            {
-                                "prefix": "approvers",
-                                "slug": "approvers",
-                                "children": [
+                        {
+                            "method": "GET",
+                            "prefix": "all",
+                            "slug": "all"
+                        },
+                        {
+                            "prefix": "define",
+                            "slug": "define",
+                            "method": "POST"
+                        },
+                        {
+                            "method": "GET",
+                            "prefix": "delete/{id}",
+                            "slug": "delete"
+                        },
+                        {
+                            "method": "GET",
+                            "prefix": "fetch/{id}",
+                            "slug": "fetch"
+                        },
+                        {
+                            "method": "GET",
+                            "prefix": "search",
+                            "slug": "search"
+                        },
+                        {
+                            "prefix": "{request_id}",
+                            "slug": "request_id",
+                            "children": [
+                                [
                                     {
-                                        "method": "GET",
-                                        "prefix": "all",
-                                        "slug": "all"
+                                        "prefix": "approvers",
+                                        "slug": "approvers",
+                                        "children": [
+                                            {
+                                                "method": "GET",
+                                                "prefix": "all",
+                                                "slug": "all"
+                                            },
+                                            {
+                                                "method": "GET",
+                                                "prefix": "approve/{id}",
+                                                "slug": "approve"
+                                            },
+                                            {
+                                                "prefix": "define",
+                                                "slug": "define",
+                                                "method": "POST"
+                                            },
+                                            {
+                                                "prefix": "delete/{id}",
+                                                "slug": "delete"
+                                            },
+                                            {
+                                                "prefix": "fetch/{id}",
+                                                "slug": "fetch"
+                                            },
+                                            {
+                                                "method": "GET",
+                                                "prefix": "reject/{id}",
+                                                "slug": "reject"
+                                            }
+                                        ]
                                     },
                                     {
-                                        "method": "GET",
-                                        "prefix": "approve/{id}",
-                                        "slug": "approve"
+                                        "prefix": "logs",
+                                        "slug": "logs",
+                                        "children": [
+                                            {
+                                                "method": "GET",
+                                                "prefix": "all",
+                                                "slug": "all"
+                                            },
+                                            {
+                                                "prefix": "define",
+                                                "slug": "define",
+                                                "method": "POST"
+                                            },
+                                            {
+                                                "method": "GET",
+                                                "prefix": "delete/{id}",
+                                                "slug": "delete"
+                                            },
+                                            {
+                                                "method": "GET",
+                                                "prefix": "fetch/{id}",
+                                                "slug": "fetch"
+                                            },
+                                            {
+                                                "method": "GET",
+                                                "prefix": "search",
+                                                "slug": "search"
+                                            }
+                                        ]
                                     },
                                     {
-                                        "prefix": "define",
-                                        "slug": "define",
-                                        "method": "POST"
-                                    },
-                                    {
-                                        "prefix": "delete/{id}",
-                                        "slug": "delete"
-                                    },
-                                    {
-                                        "prefix": "fetch/{id}",
-                                        "slug": "fetch"
-                                    },
-                                    {
-                                        "method": "GET",
-                                        "prefix": "reject/{id}",
-                                        "slug": "reject"
+                                        "prefix": "approvers",
+                                        "slug": "approvers",
+                                        "children": [
+                                            {
+                                                "method": "GET",
+                                                "prefix": "all",
+                                                "slug": "all"
+                                            },
+                                            {
+                                                "prefix": "define",
+                                                "slug": "define",
+                                                "method": "POST"
+                                            },
+                                            {
+                                                "method": "GET",
+                                                "prefix": "delete/{id}",
+                                                "slug": "delete"
+                                            },
+                                            {
+                                                "method": "GET",
+                                                "prefix": "fetch/{id}",
+                                                "slug": "fetch"
+                                            },
+                                            {
+                                                "method": "GET",
+                                                "prefix": "search",
+                                                "slug": "search"
+                                            }
+                                        ]
                                     }
                                 ]
-                            },
-                            {
-                                "prefix": "logs",
-                                "slug": "logs",
-                                "children": [
-                                    {
-                                        "method": "GET",
-                                        "prefix": "all",
-                                        "slug": "all"
-                                    },
-                                    {
-                                        "prefix": "define",
-                                        "slug": "define",
-                                        "method": "POST"
-                                    },
-                                    {
-                                        "method": "GET",
-                                        "prefix": "delete/{id}",
-                                        "slug": "delete"
-                                    },
-                                    {
-                                        "method": "GET",
-                                        "prefix": "fetch/{id}",
-                                        "slug": "fetch"
-                                    },
-                                    {
-                                        "method": "GET",
-                                        "prefix": "search",
-                                        "slug": "search"
-                                    }
-                                ]
-                            },
-                            {
-                                "prefix": "approvers",
-                                "slug": "approvers",
-                                "children": [
-                                    {
-                                        "method": "GET",
-                                        "prefix": "all",
-                                        "slug": "all"
-                                    },
-                                    {
-                                        "prefix": "define",
-                                        "slug": "define",
-                                        "method": "POST"
-                                    },
-                                    {
-                                        "method": "GET",
-                                        "prefix": "delete/{id}",
-                                        "slug": "delete"
-                                    },
-                                    {
-                                        "method": "GET",
-                                        "prefix": "fetch/{id}",
-                                        "slug": "fetch"
-                                    },
-                                    {
-                                        "method": "GET",
-                                        "prefix": "search",
-                                        "slug": "search"
-                                    }
-                                ]
-                            }
-                        ]
+                            ]
+                        }
                     ]
                 }
             ]

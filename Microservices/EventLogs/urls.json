@@ -1,40 +1,46 @@
 {
-    "prefix": "api/v1",
+    "prefix": "",
     "slug": "",
     "children": [
         {
-            "prefix": "event_logs",
-            "slug": "event_logs",
+            "prefix": "api/v1",
+            "slug": "",
             "children": [
                 {
-                    "prefix": "all",
-                    "slug": "all",
-                    "method": "GET"
-                },
-                {
-                    "prefix": "define",
-                    "slug": "define",
-                    "method": "POST"
-                },
-                {
-                    "prefix": "delete/{id}",
-                    "slug": "delete",
-                    "method": "GET"
-                },
-                {
-                    "prefix": "fetch/{id}",
-                    "slug": "fetch",
-                    "method": "GET"
-                },
-                {
-                    "prefix": "search",
-                    "slug": "search",
-                    "method": "GET"
-                },
-                {
-                    "prefix": "event_log_of",
-                    "slug": "event_log_of",
-                    "method": "GET"
+                    "prefix": "event_logs",
+                    "slug": "event_logs",
+                    "children": [
+                        {
+                            "prefix": "all",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "define",
+                            "slug": "define",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "delete/{id}",
+                            "slug": "delete",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "fetch/{id}",
+                            "slug": "fetch",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "event_log_of",
+                            "slug": "event_log_of",
+                            "method": "GET"
+                        }
+                    ]
                 }
             ]
         }
