@@ -65,7 +65,15 @@ return [
             "ledger" => [
                 "ledger" => "App\Data\Models\Ledger\Ledger",
                 "activity" => "App\Data\Models\Ledger\LedgerActivity",
+                "transfer" => "App\Data\Models\Ledger\LedgerTransfer",
                 "control" => "App\Data\Models\Ledger\LedgerControl",
+                "access" => [
+                    "actor" => "App\Data\Models\Ledger\Access\Actor",
+                    "group" => "App\Data\Models\Ledger\Access\Group",
+                    "group_member" => "App\Data\Models\Ledger\Access\GroupMember",
+                    "ledger_access" => "App\Data\Models\Ledger\Access\LedgerAccess",
+                    "ledger_accessor" => "App\Data\Models\Ledger\Access\LedgerAccessor",
+                ],
             ],
             'vouchers' => [
                 'voucher' => \App\Data\Models\Vouchers\Voucher::class,

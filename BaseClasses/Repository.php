@@ -14,6 +14,8 @@ abstract class Repository
 {
     use \Shared\Traits\Response;
 
+    protected $data_index;
+
     protected $config = [
         "soft_limit" => 1000,
     ];
@@ -543,6 +545,36 @@ abstract class Repository
     // region Response Management
     protected function buildData( $data ){
         return $data;
+    }
+
+    protected function getDataIndex( $count=1, $override="" ){
+        $index = $this->data_index;
+
+        if( !is_numeric( $count ) ){
+            if( $count instanceof \Countable || is_array($count) ){
+                $original = $count;
+                $count = count( $count );
+            }
+        }
+
+        $functions = [
+//            '_',
+            'Str::plural' => [
+                $index,
+                $count,
+            ],
+            'ucfirst' => [$index],
+        ];
+
+        if( trim($override) != "" ){
+            $index = $override;
+        }
+
+        foreach( $functions as $function => $params ){
+            $index = call_user_func_array( $function, $params );
+        }
+
+        return $index;
     }
     // endregion Response Management
 

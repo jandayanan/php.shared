@@ -83,6 +83,7 @@ trait Metable
         return $this->metaData[$key] = $this->getModelStub([
             'key'   => $key,
             'value' => $value,
+            $this->getMetaTypeKey () => $this->getMetaTypeTarget (),
         ]);
     }
 
