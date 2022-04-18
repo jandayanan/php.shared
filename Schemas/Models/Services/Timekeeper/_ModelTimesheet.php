@@ -37,6 +37,7 @@ namespace Shared\Schema\Models\Services\TimeKeeper;
  * @property $deleted_at
  *
  * @property _ModelTimesheetDetail[] $details
+ * @property _ModelTimesheetDetail[] $sheet_details
  */
 interface _ModelTimesheet{
 
