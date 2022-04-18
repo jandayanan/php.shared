@@ -545,6 +545,11 @@
                                                     "method": "GET"
                                                 },
                                                 {
+                                                    "prefix": "fetch",
+                                                    "slug": "fetch_multiple",
+                                                    "method": "POST"
+                                                },
+                                                {
                                                     "prefix": "approve",
                                                     "slug": "approve_sheet_detail",
                                                     "method": "GET"
