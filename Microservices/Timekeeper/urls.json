@@ -93,14 +93,17 @@
                                 {
                                     "prefix": "generate",
                                     "slug": "generate",
+                                    "method": "GET",
                                     "children": [
                                         {
                                             "prefix": "{type}",
-                                            "slug": "type",
+                                            "slug": "type", 
+                                            "method": "GET",
                                             "children": [
                                                 {
                                                     "prefix": "{year}",
                                                     "slug": "year",
+                                                    "method": "GET",
                                                     "children": [
                                                         {
                                                             "prefix": "{month}",

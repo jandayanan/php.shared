@@ -116,3 +116,21 @@ if( !function_exists("validate_pk") ){
         return $default;
     }
 }
+
+if( !function_exists('reverse_of') ){
+    function reverse_of( $target ){
+        $types = [
+            'debit' => 'credit',
+        ];
+
+        if( array_key_exists( $target, $types ) ){
+            return $types[ $target ];
+        }
+
+        if( in_array( $target, $types ) ){
+            return array_search( $target, $types );
+        }
+
+        return $target;
+    }
+}
