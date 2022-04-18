@@ -82,6 +82,16 @@ if( !function_exists ( "swap_values") ){
     }
 }
 
+if( !function_exists("month_text") ){
+    function month_text( $month=0 ){
+        if( $month > 12 || $month < 1 || !is_numeric( $month )){
+            return "Invalid month";
+        }
+
+        return carbon_now ()->setMonth ( $month )->monthName;
+    }
+}
+
 if( !function_exists("validate_month") ){
     function validate_month( $month=0 ){
         $month = $month === 0 ? carbon_now()->format ("m") : $month;
