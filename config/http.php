@@ -12,6 +12,7 @@ return [
             "class" => "Shared\Microservices\Session\SessionMicroservice",
             "slugs" => [
                 "session.of.actor",
+                "session.reset",
             ]
         ]
     ]
