@@ -12,7 +12,7 @@ if (!function_exists("array_to_object")) {
 }
 
 if( !function_exists("array_to_dot_notation") ){
-    function array_to_dot_notation( $array ){
+    function array_to_dot_notation( $array, $assoc=true ){
         $iterator = new RecursiveIteratorIterator(
             new RecursiveArrayIterator( (array)$array ),
             RecursiveIteratorIterator::SELF_FIRST
@@ -24,9 +24,20 @@ if( !function_exists("array_to_dot_notation") ){
             $path[$iterator->getDepth()] = $key;
 
             if (!is_array($value)) {
-                $flatArray[
-                    implode('.', array_slice($path, 0, $iterator->getDepth() + 1))
-                ] = $value;
+                if( $assoc ) {
+                    $flatArray[ implode ( '.', array_slice ( $path, 0, $iterator->getDepth () + 1 ) ) ] = $value;
+                } else {
+                    $array_keys = array_slice ( $path, 0, $iterator->getDepth () + 1 );
+                    $full_path = '';
+                    foreach( $array_keys as $array_key ){
+                        if( !is_numeric( $array_key ) ){
+                            $full_path .= $array_key . ".";
+                        }
+                    }
+
+                    $full_path .= $value;
+                    $flatArray[] = $full_path;
+                }
             }
         }
 

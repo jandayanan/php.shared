@@ -1,0 +1,74 @@
+{
+    "prefix": "",
+    "slug": "",
+    "children": [
+        {
+            "prefix": "api/v1",
+            "slug": "",
+            "children": [
+                {
+                    "prefix": "files",
+                    "slug": "files",
+                    "children": [
+                        {
+                            "prefix": "",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "upload",
+                            "slug": "upload",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "delete/{hash}",
+                            "slug": "delete",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "fetch/{hash}",
+                            "slug": "fetch",
+                            "method": "GET"
+                        }
+                    ]
+                },
+                {
+                    "prefix": "apps",
+                    "slug": "apps",
+                    "children": [
+                        {
+                            "prefix": "",
+                            "slug": "all",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "create",
+                            "slug": "create",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "update/{app_id}",
+                            "slug": "update",
+                            "method": "POST"
+                        },
+                        {
+                            "prefix": "delete/{app_id}",
+                            "slug": "delete",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "fetch/{app_id}",
+                            "slug": "fetch",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "search",
+                            "slug": "search",
+                            "method": "GET"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
