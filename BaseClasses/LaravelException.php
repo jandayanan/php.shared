@@ -84,7 +84,6 @@ abstract class LaravelException extends ExceptionHandler
                     Response::respond([
                         "code" => $code,
                         "message" => $message,
-                        "data" => json_encode ( $exception ),
                     ])
                 );
 
