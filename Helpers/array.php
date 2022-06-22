@@ -124,6 +124,17 @@ if(!function_exists('clean_array_debug')){
     }
 }
 
+if( !function_exists('array_keys_to_value') ){
+    function array_keys_to_value( $array ){
+        $result = [];
+        foreach( $array as $key => $value ){
+            $result[] = $key;
+        }
+
+        return $result;
+    }
+}
+
 if( !function_exists( "pull_data_from_map" ) ){
     function pull_data_from_map( $data, $source ){
         $map = config( $source );
@@ -232,7 +243,7 @@ if( !function_exists("pull_with_keys") ){
     }
 }
 
-if( !function_exists ( "") ){
+if( !function_exists ( "unset_collection") ){
     function unset_collection( array $from, array $keys ){
         foreach ($from as $key => $item) {
             if (!in_array($key, $keys)) {
@@ -241,5 +252,15 @@ if( !function_exists ( "") ){
         }
 
         return $from;
+    }
+}
+
+if( !function_exists ( "unset_if_exists") ){
+    function unset_if_exists( $target, array $array ){
+        if( array_key_exists ( $target, $array) ){
+            unset( $array[ $target ] );
+        }
+
+        return $array;
     }
 }
