@@ -1,4 +1,19 @@
 <?php
+const DAYS = [
+    'sunday' => 0,
+    'monday' => 1,
+    'tuesday' => 2,
+    'wednesday' => 3,
+    'thursday' => 4,
+    'friday' => 5,
+    'saturday' => 6,
+];
+
+if( !function_exists ( 'day_index') ){
+    function day_index( $day ){
+        return DAYS[ strtolower( $day ) ];
+    }
+}
 
 if (!function_exists("validate_date")) {
     /**

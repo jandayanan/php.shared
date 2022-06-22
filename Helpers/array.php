@@ -59,6 +59,17 @@ if( !function_exists ( "dot_notation_to_array") ){
     }
 }
 
+if( !function_exists ( "array_fill_with_keys") ){
+    function array_fill_with_keys($keyArray, $valueArray) {
+        if(is_array($keyArray)) {
+            foreach($keyArray as $key => $value) {
+                $filledArray[$value] = $valueArray[$key];
+            }
+        }
+        return $filledArray;
+    }
+}
+
 if( !function_exists ( "get_weighted_random") ){
     /**
      * get_weighted_random()
