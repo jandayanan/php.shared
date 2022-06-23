@@ -3,6 +3,7 @@
 namespace Shared\BaseClasses;
 
 use Shared\Traits\Response;
+use Shared\Traits\Permissioned;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Request;
  */
 abstract class Controller extends LaravelController
 {
-    use Response, AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use Response, Permissioned, AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
 
     public function respond( $result, $data ){
