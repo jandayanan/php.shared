@@ -88,6 +88,22 @@
                                     "method": "POST"
                                 }
                             ]
+                        },
+                        {
+                            "prefix": "employees",
+                            "slug": "employees",
+                            "children": [
+                                {
+                                    "prefix": "all",
+                                    "slug": "all",
+                                    "method": "GET"
+                                },
+                                {
+                                    "prefix": "fetch/{id}",
+                                    "slug": "fetch",
+                                    "method": "GET"
+                                }
+                            ]
                         }
                     ]
                 },
