@@ -59,6 +59,17 @@ if( !function_exists ( "dot_notation_to_array") ){
     }
 }
 
+if( !function_exists ( "array_fill_with_keys") ){
+    function array_fill_with_keys($keyArray, $valueArray) {
+        if(is_array($keyArray)) {
+            foreach($keyArray as $key => $value) {
+                $filledArray[$value] = $valueArray[$key];
+            }
+        }
+        return $filledArray;
+    }
+}
+
 if( !function_exists ( "get_weighted_random") ){
     /**
      * get_weighted_random()
@@ -121,6 +132,17 @@ if(!function_exists('clean_array_debug')){
             }
         }
         return $array;
+    }
+}
+
+if( !function_exists('array_keys_to_value') ){
+    function array_keys_to_value( $array ){
+        $result = [];
+        foreach( $array as $key => $value ){
+            $result[] = $key;
+        }
+
+        return $result;
     }
 }
 
@@ -232,7 +254,7 @@ if( !function_exists("pull_with_keys") ){
     }
 }
 
-if( !function_exists ( "") ){
+if( !function_exists ( "unset_collection") ){
     function unset_collection( array $from, array $keys ){
         foreach ($from as $key => $item) {
             if (!in_array($key, $keys)) {
@@ -241,5 +263,15 @@ if( !function_exists ( "") ){
         }
 
         return $from;
+    }
+}
+
+if( !function_exists ( "unset_if_exists") ){
+    function unset_if_exists( $target, array $array ){
+        if( array_key_exists ( $target, $array) ){
+            unset( $array[ $target ] );
+        }
+
+        return $array;
     }
 }
