@@ -171,6 +171,11 @@
                             "method": "GET"
                         },
                         {
+                            "prefix": "of/{type}",
+                            "slug": "of",
+                            "method": "GET"
+                        },
+                        {
                             "prefix": "search",
                             "slug": "search",
                             "method": "GET"
