@@ -560,6 +560,42 @@
                                                     "method": "GET"
                                                 },
                                                 {
+                                                    "prefix": "confirm/{id}",
+                                                    "slug": "confirm",
+                                                    "method": "GET"
+                                                },
+                                                {
+                                                    "prefix": "define",
+                                                    "slug": "define",
+                                                    "method": "POST"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "prefix": "adjustments",
+                                            "slug": "adjustments",
+                                            "children": [
+                                                {
+                                                    "prefix": "all",
+                                                    "slug": "all",
+                                                    "method": "GET"
+                                                },
+                                                {
+                                                    "prefix": "delete/{id}",
+                                                    "slug": "delete",
+                                                    "method": "GET"
+                                                },
+                                                {
+                                                    "prefix": "fetch/{id}",
+                                                    "slug": "fetch",
+                                                    "method": "GET"
+                                                },
+                                                {
+                                                    "prefix": "search",
+                                                    "slug": "search",
+                                                    "method": "GET"
+                                                },
+                                                {
                                                     "prefix": "define",
                                                     "slug": "define",
                                                     "method": "POST"
