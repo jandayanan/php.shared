@@ -22,8 +22,12 @@ if( !function_exists('shared_config') ){
      * @param string $file
      * @return mixed
      */
-    function shared_config( $key, $file="shared" ){
+    function shared_config( $key, $file="shared", $level=1 ){
         $config = require base_path( "shared/config/" . $file . ".php" );
+
+        if( $level === 0 ){
+            return $config;
+        }
 
         $iterator = new RecursiveIteratorIterator(new RecursiveArrayIterator($config));
         $result = [];

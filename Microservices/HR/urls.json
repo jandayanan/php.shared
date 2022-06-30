@@ -349,6 +349,7 @@
                                     "prefix": "fetch/{id}",
                                     "slug": "fetch",
                                     "method": "GET"
+
                                 },
                                 {
                                     "prefix": "search",
@@ -543,6 +544,11 @@
                                                     "prefix": "fetch/{id}",
                                                     "slug": "fetch",
                                                     "method": "GET"
+                                                },
+                                                {
+                                                    "prefix": "fetch",
+                                                    "slug": "fetch_multiple",
+                                                    "method": "POST"
                                                 },
                                                 {
                                                     "prefix": "approve",

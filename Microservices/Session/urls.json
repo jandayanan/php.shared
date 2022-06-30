@@ -104,6 +104,11 @@
                     "slug": "session",
                     "children": [
                         {
+                            "prefix": "reset",
+                            "slug": "reset",
+                            "method": "GET"
+                        },
+                        {
                             "prefix": "all",
                             "slug": "all",
                             "method": "GET"
@@ -163,6 +168,11 @@
                         {
                             "prefix": "fetch/{id}",
                             "slug": "fetch",
+                            "method": "GET"
+                        },
+                        {
+                            "prefix": "of/{type}",
+                            "slug": "of",
                             "method": "GET"
                         },
                         {

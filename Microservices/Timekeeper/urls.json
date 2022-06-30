@@ -163,6 +163,11 @@
                                             "method": "GET"
                                         },
                                         {
+                                            "prefix": "fetch",
+                                            "slug": "fetch_multiple",
+                                            "method": "POST"
+                                        },
+                                        {
                                             "prefix": "search",
                                             "slug": "search",
                                             "method": "GET"
