@@ -97,7 +97,7 @@
                                     "children": [
                                         {
                                             "prefix": "{type}",
-                                            "slug": "type", 
+                                            "slug": "type",
                                             "method": "GET",
                                             "children": [
                                                 {
@@ -170,6 +170,11 @@
                                         {
                                             "prefix": "search",
                                             "slug": "search",
+                                            "method": "GET"
+                                        },
+                                        {
+                                            "prefix": "confirm/{id}",
+                                            "slug": "confirm",
                                             "method": "GET"
                                         },
                                         {
