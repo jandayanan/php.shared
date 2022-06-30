@@ -73,6 +73,23 @@
                             ]
                         },
                         {
+                            "prefix": "of",
+                            "slug": "of",
+                            "children": [
+                                {
+                                    "prefix": "employee",
+                                    "slug": "employee",
+                                    "children": [
+                                        {
+                                            "prefix": "{employee_id}",
+                                            "slug": "id",
+                                            "method": "GET"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
                             "prefix": "employees",
                             "slug": "employees",
                             "children": [

@@ -349,6 +349,7 @@
                                     "prefix": "fetch/{id}",
                                     "slug": "fetch",
                                     "method": "GET"
+
                                 },
                                 {
                                     "prefix": "search",
