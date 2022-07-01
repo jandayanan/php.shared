@@ -592,13 +592,13 @@
                                                     "method": "GET"
                                                 },
                                                 {
-                                                    "prefix": "search",
-                                                    "slug": "search",
+                                                    "prefix": "confirm/{id}",
+                                                    "slug": "confirm",
                                                     "method": "GET"
                                                 },
                                                 {
-                                                    "prefix": "confirm/{id}",
-                                                    "slug": "confirm",
+                                                    "prefix": "search",
+                                                    "slug": "search",
                                                     "method": "GET"
                                                 },
                                                 {
