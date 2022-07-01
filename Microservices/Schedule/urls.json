@@ -63,6 +63,16 @@
                                     "prefix": "search",
                                     "slug": "search",
                                     "method": "GET"
+                                },
+                                {
+                                    "prefix": "approve_request/{id}",
+                                    "slug": "approve_request",
+                                    "method": "GET"
+                                },
+                                {
+                                    "prefix": "reject_request/{id}",
+                                    "slug": "reject_request",
+                                    "method": "GET"
                                 }
                             ]
                         },
@@ -97,16 +107,6 @@
                                         {
                                             "prefix": "search",
                                             "slug": "search",
-                                            "method": "GET"
-                                        },
-                                        {
-                                            "prefix": "approve_request/{id}",
-                                            "slug": "approve_request",
-                                            "method": "GET"
-                                        },
-                                        {
-                                            "prefix": "reject_request/{id}",
-                                            "slug": "reject_request",
                                             "method": "GET"
                                         }
                                     ]
