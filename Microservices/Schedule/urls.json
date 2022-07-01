@@ -36,6 +36,37 @@
                             "method": "GET"
                         },
                         {
+                            "prefix": "overtimes",
+                            "slug": "overtimes",
+                            "children": [
+                                {
+                                    "prefix": "all",
+                                    "slug": "all",
+                                    "method": "GET"
+                                },
+                                {
+                                    "prefix": "define",
+                                    "slug": "define",
+                                    "method": "POST"
+                                },
+                                {
+                                    "prefix": "delete/{id}",
+                                    "slug": "delete",
+                                    "method": "GET"
+                                },
+                                {
+                                    "prefix": "fetch/{id}",
+                                    "slug": "fetch",
+                                    "method": "GET"
+                                },
+                                {
+                                    "prefix": "search",
+                                    "slug": "search",
+                                    "method": "GET"
+                                }
+                            ]
+                        },
+                        {
                             "prefix": "{schedule_id}",
                             "slug": "schedule_id",
                             "children": [
@@ -66,6 +97,16 @@
                                         {
                                             "prefix": "search",
                                             "slug": "search",
+                                            "method": "GET"
+                                        },
+                                        {
+                                            "prefix": "approve_request/{id}",
+                                            "slug": "approve_request",
+                                            "method": "GET"
+                                        },
+                                        {
+                                            "prefix": "reject_request/{id}",
+                                            "slug": "reject_request",
                                             "method": "GET"
                                         }
                                     ]
