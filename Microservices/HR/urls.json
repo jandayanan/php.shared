@@ -1440,6 +1440,46 @@
                                     ]
                                 },
                                 {
+                                    "prefix": "overtimes",
+                                    "slug": "overtimes",
+                                    "children": [
+                                        {
+                                            "prefix": "all",
+                                            "slug": "all",
+                                            "method": "GET"
+                                        },
+                                        {
+                                            "prefix": "delete/{id}",
+                                            "slug": "delete"
+                                        },
+                                        {
+                                            "prefix": "fetch/{id}",
+                                            "slug": "fetch",
+                                            "method": "GET"
+                                        },
+                                        {
+                                            "prefix": "search",
+                                            "slug": "search",
+                                            "method": "GET"
+                                        },
+                                        {
+                                            "prefix": "define",
+                                            "slug": "define",
+                                            "method": "POST"
+                                        },
+                                        {
+                                            "prefix": "approve_request/{id}",
+                                            "slug": "approve_request",
+                                            "method": "GET"
+                                        },
+                                        {
+                                            "prefix": "reject_request/{id}",
+                                            "slug": "reject_request",
+                                            "method": "GET"
+                                        }
+                                    ]
+                                },
+                                {
                                     "prefix": "all",
                                     "slug": "all",
                                     "method": "GET"

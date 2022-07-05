@@ -3,6 +3,7 @@
 namespace Shared\BaseClasses;
 
 use Shared\Traits\Response;
+use Shared\Traits\Permissioned;
 
 /**
  * Class Schema
@@ -10,5 +11,5 @@ use Shared\Traits\Response;
  */
 abstract class Schema
 {
-    use Response;
+    use Response, Permissioned;
 }
