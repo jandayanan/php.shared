@@ -50,6 +50,60 @@
                   "slug": "all",
                   "method": "GET"
                 },
+                  {
+                      "prefix": "companies",
+                      "slug": "companies",
+                      "children": [
+                          {
+                              "prefix": "all",
+                              "slug": "all",
+                              "method": "GET"
+                          },
+                          {
+                              "prefix": "create",
+                              "slug": "create",
+                              "method": "POST"
+                          },
+                          {
+                              "prefix": "delete",
+                              "slug": "delete",
+                              "children": [
+                                  {
+                                      "prefix": "{id}",
+                                      "slug": "id",
+                                      "method": "POST"
+                                  }
+                              ]
+                          },
+                          {
+                              "prefix": "fetch",
+                              "slug": "fetch",
+                              "children": [
+                                  {
+                                      "prefix": "{id}",
+                                      "slug": "id",
+                                      "method": "GET"
+                                  }
+                              ]
+                          },
+                          {
+                              "prefix": "search",
+                              "slug": "search",
+                              "method": "GET"
+                          },
+                          {
+                              "prefix": "update",
+                              "slug": "update",
+                              "children": [
+                                  {
+                                      "prefix": "{id}",
+                                      "slug": "id",
+                                      "method": "POST"
+                                  }
+                              ]
+                          }
+                      ]
+                  },
                 {
                   "prefix": "define",
                   "slug": "define",
@@ -120,7 +174,23 @@
                   "method": "POST"
                 }
               ]
-            }
+            },
+              {
+                  "prefix": "employees",
+                  "slug": "employees",
+                  "children": [
+                      {
+                          "prefix": "all",
+                          "slug": "all",
+                          "method": "GET"
+                      },
+                      {
+                          "prefix": "fetch/{id}",
+                          "slug": "fetch",
+                          "method": "GET"
+                      }
+                  ]
+              }
           ]
         },
         {
