@@ -168,6 +168,11 @@
                                             "method": "POST"
                                         },
                                         {
+                                            "prefix": "confirm/{id}",
+                                            "slug": "confirm",
+                                            "method": "GET"
+                                        },
+                                        {
                                             "prefix": "search",
                                             "slug": "search",
                                             "method": "GET"
