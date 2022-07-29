@@ -602,6 +602,11 @@
                                                     "method": "GET"
                                                 },
                                                 {
+                                                    "prefix": "confirm/{id}",
+                                                    "slug": "confirm",
+                                                    "method": "GET"
+                                                },
+                                                {
                                                     "prefix": "define",
                                                     "slug": "define",
                                                     "method": "POST"
