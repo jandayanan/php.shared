@@ -13,10 +13,14 @@ trait Permissioned
     }
 
     public function can( $permission ) {
-        foreach ( $this->permissions as $key => $value  ) {
-            if ( $permission == $key ) {
-                return $this->permissions[$key];
+        if( $this->permissions ) {
+            foreach ($this->permissions as $key => $value) {
+                if ($permission == $key) {
+                    return $this->permissions[$key];
+                }
             }
         }
+
+        return $this;
     }
 }
