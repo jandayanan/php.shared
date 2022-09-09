@@ -8,7 +8,7 @@ use Shared\Traits\Instances\Response;
 
 class VerifyAppAccess
 {
-    protected $salt="viewqwest.com";
+    protected $salt="test.com";
 
 
     /**
