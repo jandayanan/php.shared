@@ -275,3 +275,41 @@ if( !function_exists ( "unset_if_exists") ){
         return $array;
     }
 }
+
+if( !function_exists ( "earliest") ){
+    function earliest( $in ){
+        $time_start = null;
+
+        foreach ( $in as $key => $item ) {
+            if ( $time_start == null ) {
+                $time_start = $item;
+            } else {
+                if ( $time_start > $item ) {
+                    $time_start = $item;
+                }
+            }
+        }
+        return [
+            $time_start,
+        ];
+    }
+}
+
+if( !function_exists ( "latest") ){
+    function latest( $out ){
+        $time_end = null;
+
+        foreach ( $out as $key => $item ) {
+            if ( $time_end == null ) {
+                $time_end = $item;
+            } else {
+                if ( $time_end < $item ) {
+                    $time_end = $item;
+                }
+            }
+        }
+        return [
+            $time_end,
+        ];
+    }
+}

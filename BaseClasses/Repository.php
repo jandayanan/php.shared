@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Builder;
 abstract class Repository
 {
     use \Shared\Traits\Response;
+    use \Shared\Traits\Loggable;
 
     protected $data_index;
 

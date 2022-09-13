@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Request;
 abstract class Controller extends LaravelController
 {
     use Response, Permissioned, AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use \Shared\Traits\Loggable;
 
 
     public function respond( $result, $data ){
