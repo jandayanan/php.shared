@@ -289,7 +289,6 @@ if( !function_exists ( "earliest") ){
                 }
             }
         }
-
         return [
             $time_start,
         ];
@@ -309,7 +308,6 @@ if( !function_exists ( "latest") ){
                 }
             }
         }
-
         return [
             $time_end,
         ];

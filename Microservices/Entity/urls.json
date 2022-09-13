@@ -774,6 +774,17 @@
           ]
         }
       ]
+    },
+    {
+      "prefix": "api/users",
+      "slug": "users",
+      "children": [
+        {
+          "prefix": "all",
+          "slug": "all",
+          "method": "GET"
+        }
+      ]
     }
   ]
 }
