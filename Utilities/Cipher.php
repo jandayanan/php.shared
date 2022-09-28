@@ -11,7 +11,7 @@ class Cipher
     protected static $salt = "test-app";
 
     public static function hash( $value ){
-
+        $value = $value instanceof \Illuminate\Config\Repository ? $value->all() : $value;
         $value = is_string ( $value)  ? $value : implode("-", $value );
 
         Log::info( "CIPHER LOG", [
