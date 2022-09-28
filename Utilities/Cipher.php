@@ -15,6 +15,9 @@ class Cipher
             "salt" => self::$salt,
             "value" => $value,
         ]);
+
+        $value = is_array ( $value ) ? implode("-", $value ) : $value;
+        
         return app_hash( self::$salt . $value );
     }
 }
