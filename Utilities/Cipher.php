@@ -12,7 +12,7 @@ class Cipher
 
     public static function hash( $value ){
         $value = $value instanceof \Illuminate\Config\Repository ? $value->all() : $value;
-        $value = is_array ( $value)  ? implode("-", $value ) : $value;
+        $value = is_array ( $value )  ? implode("-", $value ) : $value;
 
         Log::info( "CIPHER LOG", [
             "salt" => self::$salt,
