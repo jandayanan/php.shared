@@ -34,6 +34,11 @@
               "prefix": "user",
               "slug": "user",
               "method": "GET"
+            },
+            {
+              "prefix": "revoke",
+              "slug": "revoke",
+              "method": "GET"
             }
           ]
         },
