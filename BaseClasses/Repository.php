@@ -433,21 +433,25 @@ abstract class Repository
      */
     protected function generateSearchTerm($data, $column = "")
     {
-        $term = "%" . $data['query'] . "%";
+        $term = '';
+        if(isset($data['query'])) {
+            $term = "%" . $data['query'] . "%";
 
-        if (isset($data['term'][$column])) {
-            switch ($data['term'][$column]) {
-                case "left":
-                    $term = "%" . $data['query'];
-                    break;
-                case "right":
-                    $term = $data['query'] . "%";
-                    break;
-                case "none":
-                    $term = $data['query'];
-                    break;
+            if (isset($data['term'][$column])) {
+                switch ($data['term'][$column]) {
+                    case "left":
+                        $term = "%" . $data['query'];
+                        break;
+                    case "right":
+                        $term = $data['query'] . "%";
+                        break;
+                    case "none":
+                        $term = $data['query'];
+                        break;
+                }
             }
         }
+
 
         return $term;
     }
