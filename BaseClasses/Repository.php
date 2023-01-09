@@ -433,8 +433,7 @@ abstract class Repository
      */
     protected function generateSearchTerm($data, $column = "")
     {
-        $term = '%%';
-        if(isset($data['query'])) {
+        if(isset($data['query'])){
             $term = "%" . $data['query'] . "%";
 
             if (isset($data['term'][$column])) {
@@ -450,10 +449,8 @@ abstract class Repository
                         break;
                 }
             }
+            return $term;
         }
-
-
-        return $term;
     }
 
     /**
