@@ -452,7 +452,6 @@ abstract class Repository
 
             return $term;
         }
-
     }
 
     /**
