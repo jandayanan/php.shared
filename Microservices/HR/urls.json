@@ -1387,6 +1387,11 @@
                                                     "method": "GET"
                                                 },
                                                 {
+                                                    "prefix": "of",
+                                                    "slug": "of",
+                                                    "method": "GET"
+                                                },
+                                                {
                                                     "prefix": "delete/{id}",
                                                     "slug": "delete"
                                                 },
